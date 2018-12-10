@@ -2,6 +2,10 @@
 color:
   main: '#000'
   text: '#000'
+  blue: '#627FE9'
+  orange: '#F69A66'
+  green: '#92E387'
+  gray: '#CFCFCF'
 
 
 # z-index
