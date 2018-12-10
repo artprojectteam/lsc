@@ -1,0 +1,27 @@
+###
+# browser-syncの設定
+###
+
+https: true
+
+# phpサーバを利用する
+# 手動で `cd dist_development/ & php -S 127.0.0.1:8000` を実行
+usePHP: false
+
+# phpサーバのURL
+phpServerAddress: 127.0.0.1:8000
+
+# SPAの有効化
+history: false
+
+# 複数デバイスとの操作同期
+ghostMode:
+  clicks: false
+  scroll: false
+  forms:
+    submit: false
+    inputs: false
+    toggles: false
+
+# 実行時に表示するファイル名(ルートを除くファイル名を指定)
+startPath: '' # foo.html or foo/bar.html

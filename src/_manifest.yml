@@ -1,0 +1,23 @@
+# 参考：https://developer.mozilla.org/ja/docs/Web/Manifest
+
+# nameとshort_nameを指定しない場合、const/site.ymlのtitleを自動指定
+#name: foo
+#short_name: foo
+
+icons:
+  - src: img/xxx.jpg
+    sizes: 144x144
+    type: image/png
+
+
+start_url: ./
+
+display: standalone
+
+orientation: portrait
+
+# theme_colorを指定しない場合、src/stylus/_assets/data/base.yml > color.mainを自動指定
+#theme_color: "#000000"
+
+# 指定しない場合は反映しない
+#background_color: "#000000"

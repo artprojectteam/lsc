@@ -1,0 +1,14 @@
+- var icon = getData('icon')
+
+if icon['favicon']
+  link(rel="icon", type="image/x-icon", href=`${$root}favicon.ico`)
+
+//- .icoではないタブアイコン
+- var tab = icon['tab']
+if tab['size'].length > 0
+  each v in tab['size']
+    link(rel="icon", type=`image/${tab['ext']}`, href=`${$root + tab['dir'] + tab['name']}-${v}.${tab['ext']}`, size=`${v}x${v}`)
+
+//- apple touch icon
+if icon['touchIcon']
+  link(rel="apple-touch-icon", href=$root + icon['touchIcon'])

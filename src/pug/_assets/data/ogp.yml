@@ -1,0 +1,14 @@
+img: ogp.jpg # or foo/bar.jpg ※file-loader対象外
+
+# デフォルトのタイプ
+type: website
+
+# OGPの表示有無は各ページのyamlにあるvisibleで設定する
+fb:
+  app_id: ''
+
+tw:
+  # twitter関係：https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
+  card: summary
+  site: '@foo'
+  creator: ''

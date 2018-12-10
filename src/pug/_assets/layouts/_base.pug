@@ -1,0 +1,73 @@
+block consts
+  -
+    var $site = getSiteData()
+    var $root = getRoot($page['relative'])
+    var $description = $page['description'] || $site['description']
+    var $dir = getDir($root)
+
+    // 言語
+    var _lang = getData('lang')
+    var $lang = _lang[$page['lang']] || _lang['ja']
+
+doctype html
+html(lang=$lang['def'], dir=$lang['dir'])
+  head(prefix=getOgpPrefix($page['ogp']))
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+
+    //- user-scalable=no,maximum-scale=1はなるべく使わない | https://developers.google.com/web/tools/lighthouse/audits/has-viewport-meta-tag?hl=ja
+    //- viewport-fit=coverはiPhoneXのセーフエリアに対応する
+    meta(name="viewport", content="width=device-width,initial-scale=1,viewport-fit=cover")
+
+    //- 翻訳バー
+    meta(name="google", content="notranslate")
+
+    include parts/_prefetch
+
+    title= $page['title'] ? $page['title'] + $site['separate'] + $site['title'] : $site['title']
+
+    include parts/_icon
+
+    //- 著作者
+    if $site['author']
+      meta(name="author", content=$site['author'])
+
+    //- 説明文
+    if $description
+      meta(name="description", content=$description)
+
+    //- 電話番号、E-Mail、住所をリンクに自動変換
+    meta(name="format-detection", content="telephone=no, email=no, address=no")
+    
+    //- android用ステータスバーカラー設定
+      meta(name="theme-color", content=$site['color']['main'])
+
+    //- iOSをフルスクリーン表示
+    //- bar-styleは`default` `black` `black-translucent` の3種類
+      meta(name="apple-mobile-web-app-status-bar-style", content=default)
+      meta(name="apple-mobile-web-app-capable", content="yes")
+
+    include parts/_sns
+
+    //- カノニカルURLエリア
+    block canonical
+
+    block css
+      link(rel="stylesheet", href=`${$dir['css']}/style.css`, media="all")
+
+    block head_js
+
+    //- リリースビルドの場合
+    if IS_PRODUCTION
+      include parts/_analytics
+
+  body
+    block contents
+
+
+    block body_js
+      //-script(src=`${$dir['js']}/assets.js`)
+      //-script(src=`${$dir['js']}/app.js`)
+
+
+

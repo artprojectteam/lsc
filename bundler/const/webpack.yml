@@ -1,0 +1,30 @@
+stats:
+  assets: true
+  assetsSort: field
+  cached: true
+  cachedAssets: true
+  children: false
+  chunks: false
+  chunkModules: false
+  chunkOrigins: false
+  chunksSort: field
+  colors: true
+  depth: false
+  entrypoints: false
+  errors: true
+  errorDetails: true
+  hash: false
+  modules: false
+  modulesSort: field
+  publicPath: true
+  reasons: false
+  source: true
+  timings: true
+  version: true
+  warnings: true
+
+# ビルドパフォーマンス
+performance:
+  hints: error
+  maxEntrypointSize: 5e+6   # 5MB
+  maxAssetSize: 10e+6       # 10MB

@@ -1,0 +1,7 @@
+# DNSプリフェッチ(httpsはプリフェッチできない)
+dns: []
+#  - //fonts.googleapis.com
+
+# ローカルプリフェッチ ※ルート以下のパスを指定する(先頭にスラッシュはいらない)
+local: []
+#  - common/img/hoge.jpg

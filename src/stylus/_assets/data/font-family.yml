@@ -1,0 +1,23 @@
+fg:
+  yu: YuGothic, "Yu Gothic Medium", "Yu Gothic"
+  hiragino: '"Hiragino Kaku Gothic ProN"'
+  meryo: Meiryo
+  arial: ArialMt, Arial
+  helvetica: Helvetica
+  helveticaN: '"Helvetica Neue"'
+  android: '"Droid Sans", Roboto'
+  verdana: Verdana
+  default: sans-serif
+
+fm:
+  yu: YuMincho, "Yu Mincho"
+  hiragino: '"Hiragino Mincho ProN"'
+  msMincho: '"MS PMincho"'
+  geogia: Geogia
+  default: serif
+
+f:
+  code: Consolas, "Courier New", Courier, Monaco, monospace
+  apple: -apple-system
+  blink: BlinkMacSystemFont
+

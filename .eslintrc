@@ -1,0 +1,88 @@
+root: true
+#parser: babel-eslint
+parserOptions:
+  parser: babel-eslint
+  sourceType: module
+  ecmaVersion: 7
+#  ecmaFeatures:
+#    jsx: true
+
+env:
+  commonjs: true
+  browser: true
+  node: true
+  es6: true
+
+extends:
+  - standard
+  - plugin:vue/essential
+#  - plugin:vue/base
+
+plugins:
+  - vue
+
+rules:
+  no-mixed-spaces-and-tabs: error
+  eol-last: off
+  no-unused-vars: warn
+  semi: off
+
+overrides:
+  - files: ['*.vue']
+    rules:
+      indent: off
+
+globals:
+  # GSAP (TweenMax/TimelineMax)
+  TimelineLite: false
+  TimelineMax: false
+  TweenLite: false
+  TweenMax: false
+  Back: false
+  Bounce: false
+  Circ: false
+  Cubic: false
+  Ease: false
+  EaseLookup: false
+  Elastic: false
+  Expo: false
+  Linear: false
+  Power0: false
+  Power1: false
+  Power2: false
+  Power3: false
+  Power4: false
+  Quad: false
+  Quart: false
+  Quint: false
+  RoughEase: false
+  Sine: false
+  SlowMo: false
+  SteppedEase: false
+  Strong: false
+  Draggable: false
+  SplitText: false
+  VelocityTracker: false
+  CSSPlugin: false
+  ThrowPropsPlugin: false
+  BezierPlugin: false
+
+  # library
+  PIXI: false
+  moment: false
+  Vue: false
+  ol: false # Open Street Map API
+
+  # unit test
+  describe: false
+  it: false
+  expect: false
+  assert: false
+
+  # google tag manager
+  dataLayer: false
+  adsbygoogle: false
+  window.adsbygoogle: false
+
+  # original variable
+  IS_PRODUCTION: false

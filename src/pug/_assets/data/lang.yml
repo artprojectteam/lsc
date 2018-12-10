@@ -1,0 +1,5 @@
+# 言語設定
+ja:
+  def: ja
+  region: JP    # google mapなど
+  dir: null    # ltr(左から右)以外のときのみ記述

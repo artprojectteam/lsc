@@ -1,0 +1,14 @@
+/*
+placeholder属性の色指定
+
+$color - 色指定
+ */
+placeholder-color($color)
+  &:placeholder-shown
+    color: $color
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color

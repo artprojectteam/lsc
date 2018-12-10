@@ -1,0 +1,12 @@
+- var prefetch = getData('prefetch')
+
+//- DNS
+if prefetch['dns'].length > 0
+  meta(http-equiv="x-dns-prefetch-control", content="on")
+  each v in prefetch['dns']
+    link(rel="dns-prefetch", href!=v)
+
+//- Local
+if prefetch['local'].length > 0
+  each v in prefetch['local']
+    link(rel="prefetch", href!=$root + v)

@@ -1,0 +1,8 @@
+/*
+iPhone XのSafe Areaに対応
+$type = top | right | bottom | left
+ */
+safe-area($type)
+  $t = unquote('safe-area-inset-' + $type)
+  padding-{$type}: constant($t)
+  padding-{$type}: env($t)

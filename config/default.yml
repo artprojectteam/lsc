@@ -1,0 +1,62 @@
+cdn:
+  url: ''
+  target:
+    - img
+    - css
+    - js
+
+#####
+
+# ビルドオプション
+options:
+  # pugをPHPで出力
+  pug2php: true
+
+  # vueのビルド
+  vue: true
+
+  # babelの共通ロジック分割時のファイル名
+  optimizeName: assets
+
+  # file-loaderの有効化
+  useFileLoader:
+    # [pug] img:srcなどをfile-loaderを利用して自動解決
+    pug: true
+
+    # [stylus] cssのurl()内のパスはfile-loaderを利用して画像を自動でコピーする
+    stylus: true
+
+    # [babel/vue] babelとvue
+    babel: true
+
+  # file-loaderで画像にハッシュを付与する
+  imageHash:
+    pug: true
+    stylus: true
+    babel: true
+
+# 作業ディレクトリ
+input:
+  root: src
+  files:
+    copy: copy
+    yaml2json: yaml2json
+    stylus: stylus
+    pug: pug
+    babel: babel    # vueの場合も同様
+
+# 出力先
+output:
+  # ディレクトリの接頭辞
+  prefix: dist
+
+  # 必ず最後にスラッシュを付ける
+  root: /
+
+  files:
+    # 配列がディレクトリ構造
+    data: [common, data]
+    css: [common, css]
+    js: [common, js]
+    img: [common, img]      # [stylus | pug | babel] 画像出力はタスクが違っていても共通
+

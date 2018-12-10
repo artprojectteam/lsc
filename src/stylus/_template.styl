@@ -1,0 +1,25 @@
+@require "_assets/_init.styl"
+
+// node_modulesのファイルを使う場合
+@import "~normalize.css/normalize.css"
+
+
+// 画像を読み込む(src/imgの画像)
+.a
+  background: url(../img/foo.png) no-repeat
+
+// 画像サイズの取得
+$img = '../img/bar.png'
+p(image-size($img))
+
+
+json('_assets/const/base.json')
+
+body
+  color: color-main
+  font-family: $font-gothic
+
+
+p
+  font-family: $font-mincho
+  transition: all $easing

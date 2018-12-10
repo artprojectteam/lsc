@@ -1,0 +1,18 @@
+# サーバ側で設定している場合はfalse
+favicon: true
+
+# 追加のタブアイコン
+# ファイル名形式: ${name}-${size}.${ext}(ex. favicon-16.png)
+tab:
+  mime: image/png
+  ext: png
+  name: favicon
+
+  # ルート直下の場合は空
+  dir: '' # icon/
+  size: []
+#    - 16
+
+
+# apple touch icon ※180*180を用意する
+touchIcon: '' # icon/apple-touch-icon.png

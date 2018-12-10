@@ -1,0 +1,17 @@
+/*
+領域のレスポンシブ対応
+
+$child - 子要素のクラスかID
+$left - 左辺比率 (ex. 16)
+$right - 右辺比率 (ex. 9)
+ */
+responsive-view($child, $left, $right)
+  position: relative
+  width: 100%
+  padding-top: percentage(round($right / $left, 5))
+  {$child}
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%

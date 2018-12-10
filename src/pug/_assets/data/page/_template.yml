@@ -1,0 +1,38 @@
+# 個別ページの設定
+# 空の場合はサイト全体の設定を利用
+
+title: ''
+description: ''
+
+# ページパス(サイトインデックスの場合は空)
+# about/ || about/foo.html
+path: ''
+
+# ルートへの相対パス(ルート相対を使用する場合は空にする)
+# '' || '.' || '..' || '../..'
+relative: ''
+
+# 表示言語(lang.ymlのプロパティとして存在するキー名を指定)
+lang: ja
+
+# OGP設定(ogp.ymlを上書き)
+ogp:
+  type: website
+
+  # サイト全体のdescriptionもしくはページのdescriptionとは違う場合
+  description: ''
+
+  # ogp.ymlのimgを上書き
+  # ルート直下ではない場合はルートから見たパスも記述
+  img: '' # fb.jpg || foo/bar.jpg
+
+  fb:
+    visible: false
+
+  tw:
+    visible: false
+
+    # ogp.ymlを上書き
+    card: ''
+    site: ''
+    creator: ''

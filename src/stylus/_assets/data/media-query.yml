@@ -1,0 +1,4 @@
+mobile: 'screen and (max-width: 767px)'
+
+# PWAでstandaloneの場合
+standalone: 'screen and (display-mode: standalone)'

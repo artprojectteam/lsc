@@ -1,0 +1,10 @@
+# ビルドオプション
+options:
+  sourceMap: false
+  sitemap: false
+  minify: false
+  jsonMinify: false
+
+# 出力先
+# default.yml > output.prefixが先頭につきます (ex. prefix: dist => dist_test)
+dist: test

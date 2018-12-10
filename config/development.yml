@@ -1,0 +1,25 @@
+# サイト全体設定(上書き)
+#title: サイト名
+#author: ''
+#description: ''
+#url: ''
+#
+#cdn:
+#  url: ''
+#  target:
+#  - img
+#  - css
+#  - js
+
+#####
+
+# ビルドオプション
+options:
+  sourceMap: true
+  sitemap: false
+  minify: false
+  jsonMinify: false
+
+# 出力先
+# default.yml > output.prefixが先頭につきます (ex. prefix: dist => dist_development)
+dist: development

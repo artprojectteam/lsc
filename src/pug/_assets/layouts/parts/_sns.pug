@@ -1,0 +1,33 @@
+-
+  var ogp = getData('ogp')
+  var pageOgp = $page['ogp']
+  var tw = pageOgp['tw']
+  var fb = pageOgp['fb']
+
+//- 共通
+if fb['visible'] || tw['visible']
+  meta(property="og:type", content=pageOgp['type'] || ogp['type'])
+  meta(property="og:url", content=$site['url'] + $page['path'])
+  meta(property="og:title", content=$page['title'] || $site['title'])
+  meta(property="og:site_title", content=$site['title'])
+  meta(property="og:image", content=$site['url'] + (pageOgp['img'] || ogp['img']))
+
+- var des = pageOgp['description'] || $description
+if des
+  meta(property="og:description", content=des)
+
+//- facebook
+if fb['visible'] && ogp['app_id']
+  meta(property="fb:app_id", content=ogp['app_id'])
+
+//- twitter
+if tw['visible']
+  - var gtw = ogp['tw']
+  meta(name="twitter:card", content=tw['card'] || gtw['card'])
+  meta(name="twitter:site", content=tw['site'] || gtw['site'])
+
+  - var c = tw['creator'] || gtw['creator']
+  if c
+    meta(name="twitter:creator", content=c)
+
+

@@ -1,0 +1,27 @@
+extends  _assets/layouts/_base
+
+prepend consts
+  -
+    //- ページ設定の取得(data/page/***.yml)
+    var $page = getPageData('index')
+
+    //- 下階層にあるページ設定の取得(data/page/foo/bar/index.ymlの場合)
+    var $page2 = getPageData('index', ['foo', 'bar'])
+
+    //- _assets/data配下の設定を読む(data/foo.yml)
+    var $data = getData('foo')
+
+    //- _assets/data配下でpageディレクトリ以外の設定を読む(data/a/b/bar.yml)
+    var $data2 = getData('bar', ['a', 'b'])
+
+//- メインエリア
+block contents
+  p= `サイトURL: ${$site['url']}`
+  p= `ページタイトル: ${$page['title']}`
+
+  if IS_PHP
+    :php
+      echo '1';
+
+  //- 画像: default.yml > options.useFileLoader.pugがtrueの場合ば自動で処理を行う ※ルート相対パスになるので注意
+  img(src="../img/foo.png", alt="")
