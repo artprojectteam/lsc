@@ -2,5 +2,21 @@
 @require "_assets/_init.styl"
 
 //*********** initialize ***************//
+@require "~bootstrap/dist/css/bootstrap-reboot.min.css"
 @require "_assets/modules/_reset.styl"
 
+json('const/media-query.json')
+json('const/base.json')
+
+//*********** layouts ***************//
+.apps
+  display: grid
+  width: 100%
+  min-height: 100%
+  @media mobile
+    grid-template-rows: 50px 1fr 60px
+    grid-gap: space-mobile
+
+.wrapper
+  @media mobile
+    space-mobile-side()

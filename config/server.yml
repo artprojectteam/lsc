@@ -6,7 +6,7 @@ https: true
 
 # phpサーバを利用する
 # 手動で `cd dist_development/ & php -S 127.0.0.1:8000` を実行
-usePHP: false
+usePHP: true
 
 # phpサーバのURL
 phpServerAddress: 127.0.0.1:8000

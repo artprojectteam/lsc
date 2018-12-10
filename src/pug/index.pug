@@ -6,4 +6,13 @@ prepend consts
     var $page = getPageData('index')
 
 block contents
-  p 1234
+  #apps.apps
+    content-header
+
+    .wrapper
+      p abc
+
+    content-footer
+
+append body_js
+  script(src=`${$dir['js']}/app.js`)

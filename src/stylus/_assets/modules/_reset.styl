@@ -3,10 +3,13 @@
 // iPhone Xのsafe area指定は`safe-area('top|right|bottom|left')`で指定
 //===============================================
 json('../const/base.json')
+json('../const/media-query.json')
 
 html
   font-size: 10px
   vertical-align: text-bottom
+  width: 100%
+  height: 100%
 
 body
   margin: 0
@@ -19,6 +22,10 @@ body
   //** text-renderingを使用する場合は不具合もあるので検証しながら使用
   //text-rendering: optimizeLegibility
   -webkit-text-size-adjust: 100%
+  width: 100%
+  height: 100%
+  @media mobile
+    font-size: fz-mobile-default
 
 p
   margin-top: 0
