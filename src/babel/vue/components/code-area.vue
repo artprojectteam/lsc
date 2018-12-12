@@ -1,14 +1,13 @@
 <template lang="pug">
-  .unit ユニット
+  .codeArea code area
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .unit
+  .codeArea
     background: #eeeeee
-    width: 100%
-    height: 30px
+    height: 300px
 </style>
 
 <script>

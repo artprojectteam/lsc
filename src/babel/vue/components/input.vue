@@ -1,14 +1,13 @@
 <template lang="pug">
-  .preview preview
+  .input input
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .preview
+  .input
     background: #eeeeee
-    width: 100%
-    height: 100px
+    height: 200px
 </style>
 
 <script>

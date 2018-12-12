@@ -1,14 +1,14 @@
 <template lang="pug">
-  .display display
+  .ad ads
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .display
-    background: #eeeeee
+  .ad
     width: 100%
-    height: 30px
+    height: 100%
+    background: #eeeeee
 </style>
 
 <script>

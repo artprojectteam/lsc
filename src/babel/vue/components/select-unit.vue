@@ -1,14 +1,13 @@
 <template lang="pug">
-  .unitList ユニットリスト
+  .selectUnit select unit
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .unitList
+  .selectUnit
     background: #eeeeee
-    width: 100%
-    height: 50px
+    height: 40px
 </style>
 
 <script>

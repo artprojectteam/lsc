@@ -1,14 +1,13 @@
 <template lang="pug">
-  .inputs 入力
+  .codeBtn button
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .inputs
+  .codeBtn
     background: #eeeeee
-    width: 100%
-    height: 200px
+    height: 40px
 </style>
 
 <script>
