@@ -7,12 +7,11 @@ prepend consts
 
 block contents
   #apps.apps
-    content-header
+    .apps-header: .apps-stretch: header.apps-container: content-header
 
-    .wrapper
-      content-main
+    main.apps-stretch: content-main.apps-container
 
-    content-footer
+    .apps-footer: .apps-stretch: footer.apps-container: content-footer footer
 
 append body_js
   script(src=`${$dir['js']}/app.js`)

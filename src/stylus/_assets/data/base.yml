@@ -15,16 +15,16 @@ zi:
 
 # 余白
 space:
-  base: 24px
   mobile: 12px
+  tablet: 16px
 
 
 # フォントサイズ
 fz:
   default: 1.6rem
   title: 2rem
-  mobile:
-    default: 1.4rem
+  mobile: 1.4rem
+  tablet: 1.8rem
 
 
 # その他デフォルト

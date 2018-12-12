@@ -1,12 +1,14 @@
 <template lang="pug">
-  .footer footer
+  .inputs 入力
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .footer
-    height: 100%
+  .inputs
+    background: #eeeeee
+    width: 100%
+    height: 200px
 </style>
 
 <script>

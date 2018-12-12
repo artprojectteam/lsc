@@ -13,10 +13,46 @@ json('const/base.json')
   display: grid
   width: 100%
   min-height: 100%
-  @media mobile
-    grid-template-rows: 50px 1fr 60px
-    grid-gap: space-mobile
+  grid-template-rows: 50px 1fr 50px
+  grid-gap: space-mobile
+  @media tablet
+    grid-gap: space-tablet
+    grid-template-rows: 80px 1fr 80px
+  @media desktop
+    grid-template-rows: 80px 1fr 100px
 
-.wrapper
-  @media mobile
-    space-mobile-side()
+  &-header
+    safe-area('top')
+    safe-area('left')
+    safe-area('right')
+    background: #eeeeee
+
+    & ^[0]-stretch
+    & ^[0]-container
+      height: 100%
+
+  &-footer
+    safe-area('bottom')
+    safe-area('left')
+    safe-area('right')
+    background: color-blue
+    color: #ffffff
+
+    & ^[0]-stretch
+    & ^[0]-container
+      height: 100%
+
+  &-stretch
+    padding: 0 10px
+    @media tablet
+      padding: 0 space-tablet
+
+  &-container
+    max-width: 1200px
+    margin: 0 auto
+
+
+.btn
+  border: none
+  border-radius: 4px
+  font: $font-default

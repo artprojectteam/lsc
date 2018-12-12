@@ -1,14 +1,14 @@
 <template lang="pug">
-  .result result
+  .display display
 </template>
 
 <style lang="stylus" scoped>
   @require "~stylus/_assets/modules/_content.styl"
 
-  .result
-    height: 200px
+  .display
+    background: #eeeeee
     width: 100%
-    border: 1px solid color-blue
+    height: 30px
 </style>
 
 <script>

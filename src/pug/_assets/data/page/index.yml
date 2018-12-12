@@ -14,7 +14,7 @@ path: ''
 relative: ''
 
 # 表示言語(lang.ymlのプロパティとして存在するキー名を指定)
-lang: ja
+lang: en
 
 # OGP設定
 ogp:

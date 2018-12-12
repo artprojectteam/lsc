@@ -1,5 +1,6 @@
 mobile: 'screen and (max-width: 767px)'
-landscape: 'screen and (max-width: 959px)'
+tablet: 'screen and (min-width: 768px)'
+desktop: 'screen and (min-width: 960px)'
 
 # PWAでstandaloneの場合
 standalone: 'screen and (display-mode: standalone)'
