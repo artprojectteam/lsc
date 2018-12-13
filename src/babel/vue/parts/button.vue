@@ -31,8 +31,8 @@
         bottom: 0
         left: 0
         margin: auto
-        transform: skewX(-30deg) translate3d(-10%, 0, 0)
-        filter: blur(3px)
+        transform: skewX(-25deg) translate3d(-10%, 0, 0)
+        filter: blur(6px)
         border-left: 30px solid #fff
         width: 100%
         height: 200%
