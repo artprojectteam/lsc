@@ -193,7 +193,6 @@
 
             this.warning = res
 
-            console.log('result', res, this.$refs['warning'])
             if (res != null) {
               const warning = this.$refs['warning']
               warning.style.visibility = 'visible'
