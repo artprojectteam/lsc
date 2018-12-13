@@ -1,5 +1,5 @@
 <template lang="pug">
-  .display display
+  .display {{number}}
 </template>
 
 <style lang="stylus" scoped>
@@ -11,5 +11,13 @@
 </style>
 
 <script>
-  export default {}
+  import { mapState } from 'vuex'
+
+  export default {
+    computed: {
+      ...mapState({
+        number: (state) => state.display.numberStr
+      })
+    }
+  }
 </script>
