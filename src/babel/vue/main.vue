@@ -32,7 +32,7 @@
     grid-template-columns: repeat(2, 0.5fr)
     grid-auto-rows: auto
     @media tablet
-      grid-template-rows: 2em 1fr
+      grid-template-rows: auto 1fr
       grid-gap: space-tablet
 
     &-display
