@@ -1,5 +1,7 @@
 <template lang="pug">
-  .selectUnit select unit
+  .selectUnit
+    p select unit
+    //-v-button(color="blue", value="abc", @click="cl('abf', 'hgn')")
 </template>
 
 <style lang="stylus" scoped>
@@ -11,5 +13,11 @@
 </style>
 
 <script>
-  export default {}
+  export default {
+    methods: {
+      cl (v, a) {
+        console.log(v, a)
+      }
+    }
+  }
 </script>
