@@ -3,8 +3,8 @@ export const DISTANCE = 'distance'
 export const TRANSFER = 'transfer'
 
 export const TIME_SUB = ['μs', 'ms', 'sec', 'min', 'hour', 'day']
-export const DISTANCE_SUB = ['byte', 'KB', 'MB', 'TB', 'PB']
-export const TRANSFER_SUB = ['mm', 'cm', 'm', 'km', 'mile', 'yard', 'foot', 'inch', 'knot']
+export const DISTANCE_SUB = ['mm', 'cm', 'm', 'km', 'mile', 'yard', 'foot', 'inch', 'knot']
+export const TRANSFER_SUB = ['byte', 'KB', 'MB', 'GB', 'TB', 'PB']
 
 /**
  * サブカテゴリの取得
@@ -23,3 +23,6 @@ export const subCategory = (id) => {
       return []
   }
 }
+
+const a = 1024 ** 2
+console.log(a)
