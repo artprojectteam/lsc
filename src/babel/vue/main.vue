@@ -9,11 +9,9 @@
     .components.setting
       section.setting-unit: contents-change-unit
       section.setting-input: contents-input
+      section.setting-code: contents-formula
 
     aside.components.main-ad: contents-ad
-
-    .components.preview
-      section.preview-code: contents-code
 </template>
 
 <style lang="stylus" scoped>
@@ -58,16 +56,26 @@
 
   .setting
     display: grid
-    grid-gap: space-mobile
-    grid-template-rows: 40px 1fr
+    grid-gap: (space-mobile * 2)
+    grid-template-rows: auto auto auto
     grid-auto-rows: auto
     @media tablet
       grid-gap: space-tablet
-      grid-template-rows: 1fr
+      grid-template-rows: auto auto
       grid-template-columns: 0.33fr 0.67fr
-    @media desktop
-      grid-template-rows: 1fr
-      grid-template-columns: 1fr
+
+    &-unit
+      @media tablet
+        grid-column: 1 / 2
+        grid-rows: 1 / 2
+    &-input
+      @media tablet
+        grid-column: 2 / 3
+        grid-rows: 1 / 2
+    &-code
+      @media tablet
+        grid-column: 2 / 3
+        grid-rows: 2 / 3
 
   .main-ad
     width: 100%
@@ -80,8 +88,8 @@
   import contentsResult from './components/result'
   import contentsChangeUnit from './components/change-unit'
   import contentsInput from './components/input'
-  import contentsCode from './components/code'
   import contentsAd from './components/ad'
+  import contentsFormula from './components/formula'
 
   export default {
     components: {
@@ -91,7 +99,7 @@
       contentsResult,
       contentsChangeUnit,
       contentsInput,
-      contentsCode
+      contentsFormula
     }
   }
 </script>

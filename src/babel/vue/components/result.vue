@@ -7,7 +7,7 @@
 
   .result
     background: #eeeeee
-    height: 300px
+    height: 200px
 </style>
 
 <script>
