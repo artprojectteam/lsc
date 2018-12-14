@@ -23,6 +23,3 @@ export const subCategory = (id) => {
       return []
   }
 }
-
-const a = 1024 ** 2
-console.log(a)

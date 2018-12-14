@@ -1,5 +1,3 @@
-import Util from '../Util'
-
 export default class Base {
   #category = null
   #number = 0
@@ -22,7 +20,7 @@ export default class Base {
    * @return {*}
    */
   index (str) {
-    return Util.arrIndex(this.#category, str)
+    return this.#category.findIndex((elem) => elem === str)
   }
 
   /**
@@ -31,7 +29,7 @@ export default class Base {
    * @return {number}
    */
   product (base) {
-    return Util.digitRound(this.#number * base)
+    return this.#digitRound(this.#number * base)
   }
 
   /**
@@ -40,6 +38,11 @@ export default class Base {
    * @return {number}
    */
   quotient (base) {
-    return Util.digitRound(this.#number / base)
+    return this.#digitRound(this.#number / base)
+  }
+
+  #digitRound = (number) => {
+    const pow = 10 ** 5
+    return Math.round(number * pow) / pow
   }
 }
