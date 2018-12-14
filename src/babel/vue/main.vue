@@ -57,25 +57,24 @@
   .setting
     display: grid
     grid-gap: (space-mobile * 2)
-    grid-template-rows: auto auto auto
-    grid-auto-rows: auto
+    grid-template-rows: auto auto
     @media tablet
       grid-gap: space-tablet
-      grid-template-rows: auto auto
+      grid-template-rows: auto
       grid-template-columns: 0.33fr 0.67fr
 
     &-unit
       @media tablet
         grid-column: 1 / 2
-        grid-rows: 1 / 2
+        grid-row: 1 / 3
     &-input
       @media tablet
         grid-column: 2 / 3
-        grid-rows: 1 / 2
+        grid-row: 1 / 2
     &-code
       @media tablet
         grid-column: 2 / 3
-        grid-rows: 2 / 3
+        grid-row: 2 / 3
 
   .main-ad
     width: 100%
