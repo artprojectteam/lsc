@@ -1,7 +1,7 @@
 <template lang="pug">
   .display
     .display-number {{formatNumber}}
-    .display-unit TODO: unit
+    .display-unit {{unit}}
 </template>
 
 <style lang="stylus" scoped>
@@ -31,8 +31,15 @@
 
         return num
       },
+
+      unit () {
+        return this.category[this.index]
+      },
+
       ...mapState({
-        number: (state) => state.display.numberStr
+        number: (state) => state.display.numberStr,
+        category: (state) => state.unit.category,
+        index: (state) => state.unit.index
       })
     }
   }
