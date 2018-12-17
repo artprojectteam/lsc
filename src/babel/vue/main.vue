@@ -27,14 +27,15 @@
   .calc
     display: grid
     grid-gap: space-mobile
-    grid-template-columns: repeat(2, 0.5fr)
+    grid-template-columns: repeat(3, 1fr)
     grid-auto-rows: auto
     @media tablet
+      grid-template-columns: repeat(2, 1fr)
       grid-template-rows: auto 1fr
       grid-gap: space-tablet
 
     &-display
-      grid-column: 1 / 3
+      grid-column: 1 / 4
       grid-row: 1 / 2
       @media tablet
         grid-column: 1 / 2
@@ -48,7 +49,7 @@
         grid-row: 2 / 3
 
     &-result
-      grid-column: 2 / 3
+      grid-column: 2 / 4
       grid-row: 2 / 3
       @media tablet
         grid-column: 2 / 3

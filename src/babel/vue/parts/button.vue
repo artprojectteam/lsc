@@ -60,6 +60,10 @@
       background: color-active
       color: color-text
 
+    &.orange
+      background: color-sub
+      color: #fff
+
     &.no-cursor
       cursor: default
 

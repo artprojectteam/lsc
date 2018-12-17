@@ -5,7 +5,15 @@
 
       .result-container(ref="r-container")
         ul.result-box(ref="r-box")
-          li(v-for="val in list", :key="val.unit") {{val.number}}<br>{{val.unit}}
+          li(v-for="val in list", :key="val.unit")
+            span.result-number {{val.number}}
+            span.result-unit {{val.unit}}
+          li(v-if="fail") calculation fail X(
+
+    .result-button
+      transition(name="fade-button", mode="out-in", :duration="50")
+        v-button.result-copy(color="gray", value="COPY", no-cursor=true, v-if="fail || progress", :key="fail")
+        v-button.result-copy(color="orange", value="COPY", v-else, :key="'un-'+fail")
 </template>
 
 <style lang="stylus" scoped>
@@ -59,11 +67,46 @@
         height: $h_mb
         background: #fff
         border-bottom: 1px solid #cccccc
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        flex-flow: row wrap
+        align-content: center
+        text-align: right
+        padding: 0 space-mobile
 
         &:first-child
           border-top: @border-bottom
         @media tablet
           height: $h_tab
+
+    &-number
+      display: block
+      width: 100%
+      @media tablet
+        font-size: (fz-tablet + 0.2em)
+    &-unit
+      display: block
+      width: 100%
+      font-size: (fz-mobile - 0.2em)
+      @media tablet
+        font-size: (fz-tablet - 0.2em)
+
+    &-button
+      padding-top: space-mobile
+      text-align: right
+      display: grid
+      grid-gap: space-mobile
+      grid-template-columns: repeat(2, 1fr)
+      @media tablet
+        padding-top: space-tablet
+
+    &-copy
+      height: 40px
+      width: 100%
+      grid-column: 2 / 3
+      @media tablet
+        height: 60px
 </style>
 
 <script>
@@ -72,13 +115,17 @@
   import CalcWorker from '../../worker/calc.worker'
   import { formatter } from '../../modules/formatter'
 
+  // TODO: COPY
+
   export default {
     data () {
       return {
         worker: null,
         list: [],
         scroll: null,
-        changeNumber: false
+        changeNumber: false,
+        fail: false,
+        progress: false
       }
     },
     computed: {
@@ -105,13 +152,12 @@
     },
     methods: {
       calc () {
-        // TODO: 計算している間の演出
-
         if (this.worker != null) {
           this.worker.terminate()
           this.worker = null
         }
         this.worker = new CalcWorker()
+        this.progress = true
 
         this.worker.addEventListener('message', (e) => {
           this.worker = null
@@ -126,8 +172,13 @@
       },
 
       format (result) {
-        // TODO: 計算ができなかった場合
+        // 計算ができなかった場合
+        if (result.length === 0) {
+          this.fail = true
+          return false
+        }
 
+        this.fail = false
         this.list = []
         this.category.forEach((item, i) => {
           this.list.push({
@@ -135,6 +186,8 @@
             unit: item
           })
         })
+
+        this.progress = false
       },
 
       scrollUpdate () {

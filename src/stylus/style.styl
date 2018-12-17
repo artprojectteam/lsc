@@ -50,3 +50,25 @@ json('const/base.json')
   &-container
     max-width: 1200px
     margin: 0 auto
+
+// transition
+.fade-list
+  &-enter-active
+    transition: all 0.3s ease
+  &-leave-active
+    opacity: 0
+    position: absolute
+  &-enter
+  &-leave-to
+    opacity: 0
+    visibility: hidden
+
+.fade-button
+  &-enter-active
+  &-leave-active
+    transition: all 0.3s ease
+  &-enter
+  &-leave-to
+    pointer-events: none
+    opacity: 0.5
+    visibility: visible

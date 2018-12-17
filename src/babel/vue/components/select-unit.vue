@@ -1,12 +1,8 @@
 <template lang="pug">
-  ul.selectUnit
-    li(v-for="(val, idx) in category", :key="val")
-      template(v-if="idx === index")
-        v-button.selectUnit-button(color="gray", :value="val", no-cursor=true)
-      template(v-else)
-        v-button.selectUnit-button(color="green", :value="val", @click="change({ index: idx })")
-
-    //-v-button(color="blue", value="abc", @click="cl('abf', 'hgn')")
+  transition-group.selectUnit(name="fade-list", tag="ul", @before-enter="beforeEnter", @after-enter="afterEnter", @enter-cancelled="afterEnter")
+    li.selectUnit-list(v-for="(val, idx) in category", :data-index="idx", :key="val")
+      v-button.selectUnit-button(color="gray", :value="val", no-cursor=true, v-if="idx === index", :key="'un-'+val")
+      v-button.selectUnit-button(color="green", :value="val", @click="change({ index: idx })", v-else, :key="'ok-'+val")
 </template>
 
 <style lang="stylus" scoped>
@@ -19,10 +15,15 @@
     display: grid
     grid-gap: space-mobile
     grid-template-columns: repeat(2, 1fr)
+    position: relative
+    @media tablet
+      grid-template-columns: repeat(2, 1fr)
 
     &-button
       width: 100%
       height: 40px
+      @media tablet
+        height: 60px
 </style>
 
 <script>
@@ -36,6 +37,14 @@
       })
     },
     methods: {
+      beforeEnter (el) {
+        el.style.transitionDelay = `${50 * parseInt(el.dataset.index, 10)}ms`
+      },
+
+      afterEnter (el) {
+        el.style.transitionDelay = ''
+      },
+
       ...mapActions({
         change: 'unit/selectSubCategory'
       })
