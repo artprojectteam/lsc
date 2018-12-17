@@ -1,11 +1,11 @@
 # 各種カラー
 color:
-  main: '#000'
+  #main: '#000'
   text: '#000'
-  blue: '#627FE9'
-  orange: '#F69A66'
-  green: '#92E387'
-  gray: '#CFCFCF'
+  main: '#627FE9'
+  sub: '#F69A66'
+  point: '#92E387'
+  active: '#CFCFCF'
   red: '#D75555'
 
 

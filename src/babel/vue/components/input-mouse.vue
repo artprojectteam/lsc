@@ -10,13 +10,13 @@
   .inputMouse
     &-area
       width: 100%
-      border: 2px solid color-blue
+      border: 2px solid color-main
       padding: 5px
       text-align: right
 
       &:focus
         outline: none
-        background: lighten(color-blue, 80%)
+        background: lighten(color-main, 80%)
 
     &-warning
       padding-top: space-mobile

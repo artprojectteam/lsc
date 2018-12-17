@@ -49,15 +49,15 @@
         animation: $anim!important
 
     &.blue
-      background: color-blue
+      background: color-main
       color: #ffffff
 
     &.green
-      background: color-green
+      background: color-point
       color: color-text
 
     &.gray
-      background: color-gray
+      background: color-active
       color: color-text
 
     &.no-cursor

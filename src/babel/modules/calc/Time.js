@@ -47,6 +47,7 @@ export default class Time extends Base {
   }
 
   selectMs (number) {
+    super.input(number)
     let result = []
 
     // micro
