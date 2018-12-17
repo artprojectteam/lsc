@@ -1,10 +1,10 @@
 <template lang="pug">
   .result
     .result-area
-      .result-active
+      .result-active(ref="r-select")
 
-      .result-wrapper
-        ul.result-content
+      .result-container(ref="r-container")
+        ul.result-box(ref="r-box")
           li(v-for="val in list", :key="val.unit") {{val.number}}<br>{{val.unit}}
 </template>
 
@@ -32,6 +32,7 @@
       border: 4px solid color-main
       box-sizing: content-box
       z-index: (zi-main + 1)
+      pointer-events: none
       @media tablet
         width: calc(100% - 6px)
         height: $h_tab
@@ -39,7 +40,7 @@
         left: -3px
         border: 6px solid color-main
 
-    &-wrapper
+    &-container
       width: 100%
       height: 100%
       overflow: hidden
@@ -47,7 +48,7 @@
       @media tablet
         border: 4px solid color-active
 
-    &-content
+    &-box
       list-style: none
       padding: 80px 0
       margin: 0
@@ -67,6 +68,7 @@
 
 <script>
   import { mapState } from 'vuex'
+  import Scroll from '../../modules/Scroll'
   import CalcWorker from '../../worker/calc.worker'
   import { formatter } from '../../modules/formatter'
 
@@ -75,7 +77,8 @@
       return {
         worker: null,
         list: [],
-        scroll: null
+        scroll: null,
+        changeNumber: false
       }
     },
     computed: {
@@ -89,7 +92,14 @@
     mounted () {
       this.calc()
 
+      window.addEventListener('resize', () => {
+        if (this.scroll != null) this.scrollUpdate()
+      }, false)
+
       this.$store.watch((state) => [state.unit.current, state.unit.index, this.number], (n, o) => {
+        // change number ?
+        this.changeNumber = n[2] !== o[2]
+
         this.calc()
       })
     },
@@ -111,7 +121,7 @@
         this.worker.postMessage({
           current: this.current,
           index: this.index,
-          number: parseInt(this.number, 10)
+          number: Number(this.number)
         })
       },
 
@@ -119,16 +129,41 @@
         // TODO: 計算ができなかった場合
 
         this.list = []
-        console.log(result)
-
         this.category.forEach((item, i) => {
           this.list.push({
             number: formatter(result[i].toString(10)),
             unit: item
           })
         })
+      },
 
-        // TODO: スクロールイベントを生成
+      scrollUpdate () {
+        const container = this.$refs['r-container']
+        const box = this.$refs['r-box']
+        const select = this.$refs['r-select']
+
+        this.scroll.update(container, box, select)
+        return this.scroll
+      }
+    },
+    watch: {
+      list: {
+        // 変更時にスクロールイベントを生成
+        handler (n, o) {
+          if (this.scroll == null) {
+            this.scroll = new Scroll()
+          }
+
+          if (this.changeNumber) return false
+
+          this.scroll.deactivate()
+
+          this.$nextTick(() => {
+            const scroll = this.scrollUpdate()
+            scroll.activate()
+          })
+        },
+        deep: true
       }
     }
   }

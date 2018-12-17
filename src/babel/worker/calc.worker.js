@@ -24,7 +24,7 @@ self.addEventListener('message', (event) => {
       self.postMessage([])
       return false
   }
-}, false)
+}, true)
 
 /**
  * time

@@ -41,6 +41,11 @@ export default class Base {
     return this.#digitRound(this.#number / base)
   }
 
+  /**
+   * digit
+   * @param {number} number
+   * @return {*}
+   */
   #digitRound = (number) => {
     const pow = 10 ** 5
     return Math.round(number * pow) / pow
