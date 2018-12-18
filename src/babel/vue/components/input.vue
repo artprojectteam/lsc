@@ -1,5 +1,7 @@
 <template lang="pug">
   .input
+    template(v-if="device === 'contents-input-mouse'")
+      h2.title INPUT
     component(:is="device")
 </template>
 

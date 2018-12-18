@@ -13,7 +13,7 @@ json('const/base.json')
   display: grid
   width: 100%
   min-height: 100%
-  grid-template-rows: 50px 1fr 50px
+  grid-template-rows: 50px 1fr 60px
   grid-gap: space-mobile
   @media tablet
     grid-gap: space-tablet
@@ -25,7 +25,6 @@ json('const/base.json')
     safe-area('top')
     safe-area('left')
     safe-area('right')
-    background: #eeeeee
 
     & ^[0]-stretch
     & ^[0]-container
@@ -72,3 +71,10 @@ json('const/base.json')
     pointer-events: none
     opacity: 0.5
     visibility: visible
+
+.title
+  font-size: 1.8rem
+  margin-bottom: (space-mobile / 2)
+  @media tablet
+    font-size: 2.4rem
+    margin-bottom: (space-tablet / 2)

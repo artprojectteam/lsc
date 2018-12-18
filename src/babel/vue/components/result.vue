@@ -23,7 +23,7 @@
   .result
     &-area
       height: 200px
-      background: rgba(#fff, 0.9)
+      background: rgba(#fff, 0.8)
       position: relative
       z-index: zi-main
       @media tablet

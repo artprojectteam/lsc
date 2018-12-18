@@ -1,6 +1,6 @@
 <template lang="pug">
   .formula
-    h2.formula-title Formula
+    h2.formula-title FORMULA
 
     .formula-code code area
 </template>

@@ -31,7 +31,7 @@ export default class Distance extends Base {
       yard: super.index('yard'),
       foot: super.index('foot'),
       inch: super.index('inch'),
-      knot: super.index('knot')
+      knot: super.index('nautical mile')
     }
   }
 

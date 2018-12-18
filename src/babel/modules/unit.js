@@ -3,7 +3,7 @@ export const DISTANCE = 'distance'
 export const TRANSFER = 'transfer'
 
 export const TIME_SUB = ['μs', 'ms', 'sec', 'min', 'hour', 'day']
-export const DISTANCE_SUB = ['mm', 'cm', 'm', 'km', 'mile', 'yard', 'foot', 'inch', 'knot']
+export const DISTANCE_SUB = ['mm', 'cm', 'm', 'km', 'mile', 'yard', 'foot', 'inch', 'nautical mile']
 export const TRANSFER_SUB = ['byte', 'KB', 'MB', 'GB', 'TB', 'PB']
 
 /**

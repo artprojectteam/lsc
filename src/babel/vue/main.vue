@@ -3,11 +3,17 @@
   article
     .components.calc
       section.calc-display: contents-display
-      section.calc-unit: contents-select-unit
-      section.calc-result: contents-result
+      section.calc-unit
+        h2.title UNIT
+        contents-select-unit
+      section.calc-result
+        h2.title RESULT
+        contents-result
 
     .components.setting
-      section.setting-unit: contents-change-unit
+      section.setting-unit
+        h2.title CATEGORY
+        contents-change-unit
       section.setting-input: contents-input
       section.setting-code: contents-formula
 
@@ -37,6 +43,9 @@
     &-display
       grid-column: 1 / 4
       grid-row: 1 / 2
+      background: rgba(lighten(color-active, 40%), 0.9)
+      padding: space-mobile
+      border-radius: 4px
       @media tablet
         grid-column: 1 / 2
         grid-row: 1 / 2

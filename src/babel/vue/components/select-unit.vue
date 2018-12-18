@@ -1,6 +1,6 @@
 <template lang="pug">
   transition-group.selectUnit(name="fade-list", tag="ul", @before-enter="beforeEnter", @after-enter="afterEnter", @enter-cancelled="afterEnter")
-    li.selectUnit-list(v-for="(val, idx) in category", :data-index="idx", :key="val")
+    li.selectUnit-list(v-for="(val, idx) in category", :data-index="idx", :key="val", :class="{wide: isWide(val)}")
       v-button.selectUnit-button(color="green", :value="val", :is-active="idx === index", @click="change({ index: idx })")
 </template>
 
@@ -23,6 +23,11 @@
       height: 40px
       @media tablet
         height: 60px
+
+    &-list.wide
+      grid-column: 1 / 3
+      @media tablet
+        grid-column: auto
 </style>
 
 <script>
@@ -36,6 +41,9 @@
       })
     },
     methods: {
+      isWide (val) {
+        return val === 'nautical mile'
+      },
       beforeEnter (el) {
         el.style.transitionDelay = `${50 * parseInt(el.dataset.index, 10)}ms`
       },

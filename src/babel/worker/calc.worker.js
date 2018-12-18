@@ -79,7 +79,7 @@ function funcDistance (index, number) {
       return distance.selectFoot(number)
     case 'inch':
       return distance.selectInch(number)
-    case 'knot':
+    case 'nautical mile':
       return distance.selectKnot(number)
     default:
       return []
