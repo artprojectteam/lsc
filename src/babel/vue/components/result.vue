@@ -11,7 +11,9 @@
           li(v-if="fail") calculation fail X(
 
     .result-button
-      v-button.result-copy(color="orange", value="COPY", :is-active="fail || progress")
+      .result-button-area
+        #result-success.result-success Copied !
+        v-button.result-copy(color="orange", value="COPY", :is-active="fail || progress", @click="clipboard")
 </template>
 
 <style lang="stylus" scoped>
@@ -96,13 +98,42 @@
       display: grid
       grid-gap: space-mobile
       grid-template-columns: repeat(2, 1fr)
+      z-index: zi-main
       @media tablet
         padding-top: space-tablet
+
+      &-area
+        grid-column: 2 / 3
+        position: relative
+
+    &-success
+      position: absolute
+      width: 60px
+      height: 30px
+      display: flex
+      flex-flow: row nowrap
+      align-items: center
+      justify-content: center
+      background: rgba(#000000, 0.8)
+      color: #ffffff
+      text-align: center
+      top: 0
+      left: 0
+      right: 0
+      margin: auto
+      z-index: zi-main + 1
+      font-size: (fz-mobile - 0.2em)
+      border-radius: 4px
+      pointer-events: none
+      opacity: 0
+      @media tablet
+        width: 80px
+        height: 40px
+        font-size: (fz-tablet - 0.2em)
 
     &-copy
       height: 40px
       width: 100%
-      grid-column: 2 / 3
       @media tablet
         height: 60px
 </style>
@@ -112,8 +143,8 @@
   import Scroll from '../../modules/Scroll'
   import CalcWorker from '../../worker/calc.worker'
   import { formatter } from '../../modules/formatter'
-
-  // TODO: COPY
+  import copy from 'clipboard-copy'
+  import animejs from 'animejs'
 
   export default {
     data () {
@@ -169,6 +200,27 @@
         })
       },
 
+      clipboard () {
+        const result = this.list[this.scroll.currentIndex()].origin
+        copy(result)
+          .then(() => {
+            animejs({
+              targets: '#result-success',
+              opacity: [
+                { value: 0, duration: 0, elasticity: 0 },
+                { value: 1, duration: 400, elasticity: 0 },
+                { value: 0, duration: 400, elasticity: 0, delay: 200 }
+              ],
+              translateY: [
+                { value: 0, duration: 0, elasticity: 0 },
+                { value: '-20px', duration: 400, elasticity: 0 },
+                { value: '-30px', duration: 400, elasticity: 0, delay: 200 }
+              ]
+            })
+          })
+          .catch(() => {})
+      },
+
       format (result) {
         // 計算ができなかった場合
         if (result.length === 0) {
@@ -181,6 +233,7 @@
         this.category.forEach((item, i) => {
           this.list.push({
             number: formatter(result[i].toString(10)),
+            origin: result[i],
             unit: item
           })
         })

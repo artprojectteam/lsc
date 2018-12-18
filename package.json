@@ -59,7 +59,7 @@
     "bootstrap": "4.1.3",
     "browser-sync": "2.26.3",
     "chai": "4.2.0",
-    "clipboard": "2.0.4",
+    "clipboard-copy": "2.0.1",
     "command-line-args": "5.0.2",
     "config": "2.0.1",
     "connect-history-api-fallback": "1.5.0",
