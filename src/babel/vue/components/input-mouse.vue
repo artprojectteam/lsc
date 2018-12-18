@@ -13,6 +13,7 @@
       border: 2px solid color-main
       padding: 5px
       text-align: right
+      font-size: (fz-tablet + 0.8rem)
 
       &:focus
         outline: none
