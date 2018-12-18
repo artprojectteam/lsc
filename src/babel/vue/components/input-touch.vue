@@ -1,5 +1,5 @@
 <template lang="pug">
-  .inputTouch
+  .inputTouch(ref="inputTouch")
     .inputTouch-area(v-for="obj in inputArray", :key="obj.val", :class="'num-'+obj.val", @touchstart.stop="scaleOut($event.target)", @touchend.stop="scaleIn($event.target)", @click="createNumber(obj.val)")
       button.inputBtn(type="button")
         template(v-if="obj.val === 'del'")
@@ -38,6 +38,7 @@
       justify-content: center
       opacity: 0
       visibility: hidden
+      pointer-events: none
 
   .warning
     display: inline-block
@@ -197,6 +198,9 @@
               const warning = this.$refs['warning']
               warning.style.visibility = 'visible'
 
+              const parent = this.$refs['inputTouch']
+              parent.style.pointerEvents = 'none'
+
               animejs({
                 targets: warning,
                 opacity: [
@@ -209,6 +213,7 @@
                 ],
                 complete: () => {
                   warning.removeAttribute('style')
+                  parent.removeAttribute('style')
                 }
               })
             }

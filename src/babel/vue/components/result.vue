@@ -11,9 +11,7 @@
           li(v-if="fail") calculation fail X(
 
     .result-button
-      transition(name="fade-button", mode="out-in", :duration="50")
-        v-button.result-copy(color="gray", value="COPY", no-cursor=true, v-if="fail || progress", :key="fail")
-        v-button.result-copy(color="orange", value="COPY", v-else, :key="'un-'+fail")
+      v-button.result-copy(color="orange", value="COPY", :is-active="fail || progress")
 </template>
 
 <style lang="stylus" scoped>

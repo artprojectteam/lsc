@@ -1,10 +1,7 @@
 <template lang="pug">
   ul.changeUnit
     li.changeUnit-list(v-for="val in list", :key="val")
-      template(v-if="val === current")
-        v-button.changeUnit-button(color="gray", :value="val", no-cursor=true)
-      template(v-else)
-        v-button.changeUnit-button(color="blue", :value="val", @click="change({ val })")
+      v-button.changeUnit-button(color="blue", :value="val", :is-active="val === current", @click="change({ val })")
 </template>
 
 <style lang="stylus" scoped>
