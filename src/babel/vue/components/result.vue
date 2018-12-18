@@ -169,7 +169,7 @@
       this.calc()
 
       window.addEventListener('resize', () => {
-        if (this.scroll != null) this.scrollUpdate()
+        if (this.scroll != null) this.scrollUpdate(true)
       }, false)
 
       this.$store.watch((state) => [state.unit.current, state.unit.index, state.display.numberStr], (n, o) => {
@@ -241,12 +241,12 @@
         this.progress = false
       },
 
-      scrollUpdate () {
+      scrollUpdate (isResize = false) {
         const container = this.$refs['r-container']
         const box = this.$refs['r-box']
         const select = this.$refs['r-select']
 
-        this.scroll.update(container, box, select)
+        this.scroll.update(container, box, select, isResize)
         return this.scroll
       },
 
