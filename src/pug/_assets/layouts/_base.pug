@@ -40,12 +40,14 @@ html(lang=$lang['def'], dir=$lang['dir'])
     meta(name="format-detection", content="telephone=no, email=no, address=no")
     
     //- android用ステータスバーカラー設定
-      meta(name="theme-color", content=$site['color']['main'])
+    meta(name="theme-color", content=$site['color']['main'])
 
     //- iOSをフルスクリーン表示
     //- bar-styleは`default` `black` `black-translucent` の3種類
-      meta(name="apple-mobile-web-app-status-bar-style", content=default)
-      meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="default")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+
+    link(rel="manifest", href="/manifest.json")
 
     include parts/_sns
 
