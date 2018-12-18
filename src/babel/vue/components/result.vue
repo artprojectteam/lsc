@@ -139,7 +139,7 @@
 </style>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import Scroll from '../../modules/Scroll'
   import CalcWorker from '../../worker/calc.worker'
   import { formatter } from '../../modules/formatter'
@@ -172,7 +172,7 @@
         if (this.scroll != null) this.scrollUpdate()
       }, false)
 
-      this.$store.watch((state) => [state.unit.current, state.unit.index, this.number], (n, o) => {
+      this.$store.watch((state) => [state.unit.current, state.unit.index, state.display.numberStr], (n, o) => {
         // change number ?
         this.changeNumber = n[2] !== o[2]
 
@@ -194,7 +194,7 @@
         }, false)
 
         this.worker.postMessage({
-          current: this.current,
+          category: this.current,
           index: this.index,
           number: Number(this.number)
         })
@@ -248,14 +248,20 @@
 
         this.scroll.update(container, box, select)
         return this.scroll
-      }
+      },
+
+      ...mapActions({
+        selectResultIndex: 'unit/selectResultIndex'
+      })
     },
     watch: {
       list: {
         // 変更時にスクロールイベントを生成
         handler (n, o) {
           if (this.scroll == null) {
-            this.scroll = new Scroll()
+            this.scroll = new Scroll((index) => {
+              this.selectResultIndex({ index })
+            })
           }
 
           if (this.changeNumber) return false

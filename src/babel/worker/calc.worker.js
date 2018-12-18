@@ -1,12 +1,24 @@
 import Distance from '../modules/calc/Distance'
 import Time from '../modules/calc/Time'
 import Transfer from '../modules/calc/Transfer'
-import { DISTANCE, DISTANCE_SUB, TIME, TIME_SUB, TRANSFER, TRANSFER_SUB } from '../modules/unit'
+import {
+  DISTANCE,
+  DISTANCE_SUB,
+  TIME,
+  TIME_SUB, TIME_U_DAY,
+  TIME_U_HOUR,
+  TIME_U_MICRO,
+  TIME_U_MIN,
+  TIME_U_MS,
+  TIME_U_SEC,
+  TRANSFER,
+  TRANSFER_SUB
+} from '../modules/unit'
 
 self.addEventListener('message', (event) => {
-  const { current, index, number } = event.data
+  const { category, index, number } = event.data
 
-  switch (current) {
+  switch (category) {
     case TIME:
       const time = funcTime(index, number)
       self.postMessage(time)
@@ -24,7 +36,7 @@ self.addEventListener('message', (event) => {
       self.postMessage([])
       return false
   }
-}, true)
+}, false)
 
 /**
  * time
@@ -36,17 +48,17 @@ function funcTime (index, number) {
   const time = new Time()
 
   switch (TIME_SUB[index]) {
-    case 'μs':
+    case TIME_U_MICRO:
       return time.selectMicro(number)
-    case 'ms':
+    case TIME_U_MS:
       return time.selectMs(number)
-    case 'sec':
+    case TIME_U_SEC:
       return time.selectSec(number)
-    case 'min':
+    case TIME_U_MIN:
       return time.selectMin(number)
-    case 'hour':
+    case TIME_U_HOUR:
       return time.selectHour(number)
-    case 'day':
+    case TIME_U_DAY:
       return time.selectDay(number)
     default:
       return []

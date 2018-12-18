@@ -34,8 +34,11 @@ export default class Scroll {
     wheel: null
   }
 
-  constructor () {
+  #cb = null
+
+  constructor (cb = null) {
     this.#w = document.documentElement.clientWidth || document.body.clientWidth
+    this.#cb = cb
   }
 
   currentIndex () {
@@ -192,6 +195,7 @@ export default class Scroll {
       }
 
       this.#index = this.#searchIndex(pos)
+      this.#cb(this.#index)
 
       pos = -(this.#box.list[this.#index] - this.#padding)
       this.#animation(pos, 0.4)
@@ -232,6 +236,8 @@ export default class Scroll {
 
       timer = setTimeout(() => {
         this.#index = this.#searchIndex(pos)
+        this.#cb(this.#index)
+
         pos = -(this.#box.list[this.#index] - this.#padding)
         this.#animation(pos, 0.4)
         this.#pos = pos

@@ -1,4 +1,4 @@
-import { TIME_SUB } from '../unit'
+import { TIME_SUB, TIME_U_DAY, TIME_U_HOUR, TIME_U_MICRO, TIME_U_MIN, TIME_U_MS, TIME_U_SEC } from '../unit'
 import Base from './Base'
 
 export default class Time extends Base {
@@ -8,12 +8,12 @@ export default class Time extends Base {
     super(TIME_SUB)
 
     this.#idx = {
-      micro: super.index('μs'),
-      ms: super.index('ms'),
-      sec: super.index('sec'),
-      min: super.index('min'),
-      hour: super.index('hour'),
-      day: super.index('day')
+      micro: super.index(TIME_U_MICRO),
+      ms: super.index(TIME_U_MS),
+      sec: super.index(TIME_U_SEC),
+      min: super.index(TIME_U_MIN),
+      hour: super.index(TIME_U_HOUR),
+      day: super.index(TIME_U_DAY)
     }
   }
 

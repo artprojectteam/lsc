@@ -5,7 +5,8 @@ const category = [TIME, DISTANCE, TRANSFER]
 const state = {
   current: TIME,
   category: TIME_SUB, // サブカテゴリ
-  index: 0 // サブカテゴリのカレント
+  index: 0, // サブカテゴリのカレント
+  result: 0 // 選択した結果の情報
 }
 
 const mutations = {
@@ -13,10 +14,16 @@ const mutations = {
     state.current = category.indexOf(val) > -1 ? val : TIME
     state.category = subCategory(state.current)
     state.index = 0
+    state.result = 0
   },
 
   selectSubCategory (state, { index }) {
     state.index = state.category.length > index ? index : 0
+    state.result = 0
+  },
+
+  selectResultIndex (state, { index }) {
+    state.result = index
   }
 }
 
@@ -28,7 +35,8 @@ const getters = {
 
 const actions = {
   changeCategory: ({ commit }, { val }) => commit('changeCategory', { val }),
-  selectSubCategory: ({ commit }, { index }) => commit('selectSubCategory', { index })
+  selectSubCategory: ({ commit }, { index }) => commit('selectSubCategory', { index }),
+  selectResultIndex: ({ commit }, { index }) => commit('selectResultIndex', { index })
 }
 
 export const unit = {
