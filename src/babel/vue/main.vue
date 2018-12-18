@@ -43,7 +43,7 @@
     &-display
       grid-column: 1 / 4
       grid-row: 1 / 2
-      background: rgba(lighten(color-active, 40%), 0.9)
+      background: rgba(lighten(color-active, 40%), 0.6)
       padding: space-mobile
       border-radius: 4px
       @media tablet

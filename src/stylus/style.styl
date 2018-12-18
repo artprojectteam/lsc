@@ -22,18 +22,19 @@ json('const/base.json')
     grid-template-rows: 80px 1fr 100px
 
   &-header
-    safe-area('top')
-    safe-area('left')
-    safe-area('right')
-
+    // minimal-uiにするのでコメントアウト
+    //safe-area('top')
+    //safe-area('left')
+    //safe-area('right')
     & ^[0]-stretch
     & ^[0]-container
       height: 100%
 
   &-footer
-    safe-area('bottom')
-    safe-area('left')
-    safe-area('right')
+    // 広告がフッターの下にくるので何もしない
+    //safe-area('bottom')
+    //safe-area('left')
+    //safe-area('right')
     background: color-main
     color: #ffffff
 
@@ -73,8 +74,8 @@ json('const/base.json')
     visibility: visible
 
 .title
-  font-size: 1.8rem
+  font-size: 1.6rem
   margin-bottom: (space-mobile / 2)
   @media tablet
-    font-size: 2.4rem
+    font-size: 2rem
     margin-bottom: (space-tablet / 2)
