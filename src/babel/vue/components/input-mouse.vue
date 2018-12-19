@@ -53,10 +53,6 @@
         numberStr: (state) => state.display.numberStr
       })
     },
-    beforeCreate () {
-    },
-    mounted () {
-    },
     methods: {
       ...mapActions({
         update: 'display/update'

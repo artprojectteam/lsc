@@ -25,7 +25,7 @@
   .result
     &-area
       height: 200px
-      background: rgba(#fff, 0.6)
+      background: rgba(lighten(color-active, 60%), 0.6)
       position: relative
       z-index: zi-main
       @media tablet
@@ -66,7 +66,7 @@
       li
         height: $h_mb
         background: #fff
-        border-bottom: 1px solid #cccccc
+        border-bottom: 1px solid color-active
         display: flex
         align-items: center
         justify-content: flex-end
@@ -139,12 +139,12 @@
 </style>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import animejs from 'animejs'
+  import copy from 'clipboard-copy'
+  import { mapActions, mapState } from 'vuex'
+  import { formatter } from '../../modules/formatter'
   import Scroll from '../../modules/Scroll'
   import CalcWorker from '../../worker/calc.worker'
-  import { formatter } from '../../modules/formatter'
-  import copy from 'clipboard-copy'
-  import animejs from 'animejs'
 
   export default {
     data () {

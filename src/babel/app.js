@@ -12,12 +12,7 @@ Vue.component('content-main', main)
 Vue.component('v-button', button)
 
 const apps = new Vue({
-  store,
-  mounted () {
-    // this.$store.watch((state) => state.unit.current, () => {
-    //   console.log(this.$store.state.unit.current)
-    // })
-  }
+  store
 })
 
 apps.$mount('#apps')

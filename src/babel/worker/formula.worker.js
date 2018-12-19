@@ -26,6 +26,7 @@ import {
 self.addEventListener('message', (event) => {
   const { category, unit, result } = event.data
 
+  // formula display
   switch (category) {
     case TIME: {
       const res = funcTime(unit, result)
@@ -72,6 +73,12 @@ function funcTime (unit, result) {
   }
 }
 
+/**
+ * distance
+ * @param {number} unit
+ * @param {number} result
+ * @return {*}
+ */
 function funcDistance (unit, result) {
   const distance = new Distance()
 
@@ -99,6 +106,12 @@ function funcDistance (unit, result) {
   }
 }
 
+/**
+ * transfer
+ * @param {number} unit
+ * @param {number} result
+ * @return {*}
+ */
 function funcTransfer (unit, result) {
   const transfer = new Transfer()
 

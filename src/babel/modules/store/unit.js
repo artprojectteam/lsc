@@ -4,9 +4,15 @@ const category = [TIME, DISTANCE, TRANSFER]
 
 const state = {
   current: TIME,
-  category: TIME_SUB, // サブカテゴリ
-  index: 0, // サブカテゴリのカレント
-  result: 0 // 選択した結果の情報
+
+  // サブカテゴリ
+  category: TIME_SUB,
+
+  // サブカテゴリのカレント
+  index: 0,
+
+  // 選択した結果の情報
+  result: 0
 }
 
 const mutations = {

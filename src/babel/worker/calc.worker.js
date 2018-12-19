@@ -34,6 +34,7 @@ import {
 self.addEventListener('message', (event) => {
   const { category, index, number } = event.data
 
+  // calc result
   switch (category) {
     case TIME:
       const time = funcTime(index, number)
