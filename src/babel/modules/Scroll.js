@@ -66,13 +66,14 @@ export default class Scroll {
 
   /**
    * view rendering, resize
-   * @param {HTMLElement} container
-   * @param {HTMLElement} box
-   * @param {HTMLElement} select
+   * @param {HTMLElement} container - wrapper area
+   * @param {HTMLElement} box - element area
+   * @param {HTMLElement} select - select area
+   * @param {boolean} changeCategory
    * @param {boolean} isResize
    * @return {boolean}
    */
-  update (container, box, select, isResize = false) {
+  update (container, box, select, changeCategory, isResize = false) {
     if (isResize) {
       const w = document.documentElement.clientWidth || document.body.clientWidth
       if (this.#w === w) return false
@@ -82,14 +83,15 @@ export default class Scroll {
 
     this.#container.elem = container
     this.#box.elem = box
-    this.#setup(select.clientHeight)
+    this.#setup(select.clientHeight, changeCategory)
   }
 
   /**
    * element initialize
    * @param {number} selectH
+   * @param {boolean} changeCategory
    */
-  #setup = (selectH) => {
+  #setup = (selectH, changeCategory) => {
     this.#container.h = this.#container.elem.offsetHeight
     this.#box.list = []
     this.#pos = 0
@@ -124,6 +126,15 @@ export default class Scroll {
     this.#lastPos = this.#container.h - this.#box.h
     this.#center = Math.floor(this.#container.h / 2)
     this.#selectCenter = Math.floor(selectH / 2)
+
+    // カテゴリが変わった場合は2つ目の要素を初期設定にする
+    if (changeCategory) {
+      this.#index = 1
+      this.#pos = -box.children[0].offsetHeight
+      this.#animation(this.#pos, 0.4)
+    } else {
+      this.#index = 0
+    }
   }
 
   /**

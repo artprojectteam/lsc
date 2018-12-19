@@ -12,7 +12,7 @@
 
     .result-button
       .result-button-area
-        #result-success.result-success Copied !
+        #result-copied.result-copied Copied !
         v-button.result-copy(color="orange", value="COPY", :is-active="fail || progress", @click="clipboard")
 </template>
 
@@ -106,7 +106,7 @@
         grid-column: 2 / 3
         position: relative
 
-    &-success
+    &-copied
       position: absolute
       width: 60px
       height: 30px
@@ -153,6 +153,7 @@
         list: [],
         scroll: null,
         changeNumber: false,
+        changeCategory: true,
         fail: false,
         progress: false
       }
@@ -173,8 +174,8 @@
       }, false)
 
       this.$store.watch((state) => [state.unit.current, state.unit.index, state.display.numberStr], (n, o) => {
-        // change number ?
         this.changeNumber = n[2] !== o[2]
+        this.changeCategory = n[0] !== o[0]
 
         this.calc()
       })
@@ -200,12 +201,15 @@
         })
       },
 
+      /**
+       * コピー処理
+       */
       clipboard () {
         const result = this.list[this.scroll.currentIndex()].origin
         copy(result)
           .then(() => {
             animejs({
-              targets: '#result-success',
+              targets: '#result-copied',
               opacity: [
                 { value: 0, duration: 0, elasticity: 0 },
                 { value: 1, duration: 400, elasticity: 0 },
@@ -221,6 +225,9 @@
           .catch(() => {})
       },
 
+      /**
+       * 数値表示の整形
+       */
       format (result) {
         // 計算ができなかった場合
         if (result.length === 0) {
@@ -241,12 +248,17 @@
         this.progress = false
       },
 
+      /**
+       * 要素位置のリセット
+       * @param isResize
+       * @return {null}
+       */
       scrollUpdate (isResize = false) {
         const container = this.$refs['r-container']
         const box = this.$refs['r-box']
         const select = this.$refs['r-select']
 
-        this.scroll.update(container, box, select, isResize)
+        this.scroll.update(container, box, select, this.changeCategory, isResize)
         return this.scroll
       },
 
@@ -270,6 +282,7 @@
 
           this.$nextTick(() => {
             const scroll = this.scrollUpdate()
+            this.selectResultIndex({ index: scroll.currentIndex() })
             scroll.activate()
           })
         },
