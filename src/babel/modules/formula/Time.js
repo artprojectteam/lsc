@@ -18,27 +18,27 @@ export default class Time extends Base {
       case TIME_U_MS:
         return {
           title: this.#to(unit, TIME_U_MS),
-          body: `${TIME_U_MS} = ${TIME_U_MICRO} / ${micro}`
+          body: `${TIME_U_MS} = x / ${micro}`
         }
       case TIME_U_SEC:
         return {
           title: this.#to(unit, TIME_U_SEC),
-          body: `${TIME_U_SEC} = ${TIME_U_MICRO} / (${sec})`
+          body: `${TIME_U_SEC} = x / (${sec})`
         }
       case TIME_U_MIN:
         return {
           title: this.#to(unit, TIME_U_MIN),
-          body: `${TIME_U_MIN} = ${TIME_U_MICRO} / (${min})`
+          body: `${TIME_U_MIN} = x / (${min})`
         }
       case TIME_U_HOUR:
         return {
           title: this.#to(unit, TIME_U_HOUR),
-          body: `${TIME_U_HOUR} = ${TIME_U_MICRO} / (${hour})`
+          body: `${TIME_U_HOUR} = x / (${hour})`
         }
       case TIME_U_DAY:
         return {
           title: this.#to(unit, TIME_U_DAY),
-          body: `${TIME_U_DAY} = ${TIME_U_MICRO} / (${day})`
+          body: `${TIME_U_DAY} = x / (${day})`
         }
       default:
         return super.unknown()
@@ -57,29 +57,29 @@ export default class Time extends Base {
       case TIME_U_MICRO:
         return {
           title: this.#to(unit, TIME_U_MICRO),
-          body: `${TIME_U_MICRO} = ${TIME_U_MS} * ${ms}`
+          body: `${TIME_U_MICRO} = x * ${ms}`
         }
       case TIME_U_MS:
         return super.notRequire()
       case TIME_U_SEC:
         return {
           title: this.#to(unit, TIME_U_SEC),
-          body: `${TIME_U_SEC} = ${TIME_U_MS} / ${ms}`
+          body: `${TIME_U_SEC} = x / ${ms}`
         }
       case TIME_U_MIN:
         return {
           title: this.#to(unit, TIME_U_MIN),
-          body: `${TIME_U_MIN} = ${TIME_U_MS} / (${min})`
+          body: `${TIME_U_MIN} = x / (${min})`
         }
       case TIME_U_HOUR:
         return {
           title: this.#to(unit, TIME_U_HOUR),
-          body: `${TIME_U_HOUR} = ${TIME_U_MS} / (${hour})`
+          body: `${TIME_U_HOUR} = x / (${hour})`
         }
       case TIME_U_DAY:
         return {
           title: this.#to(unit, TIME_U_DAY),
-          body: `${TIME_U_DAY} = ${TIME_U_MS} / (${day})`
+          body: `${TIME_U_DAY} = x / (${day})`
         }
       default:
         return super.unknown()
@@ -97,29 +97,29 @@ export default class Time extends Base {
       case TIME_U_MICRO:
         return {
           title: this.#to(unit, TIME_U_MICRO),
-          body: `${TIME_U_MICRO} = ${TIME_U_SEC} * 1000000μs`
+          body: `${TIME_U_MICRO} = x * 1000000μs`
         }
       case TIME_U_MS:
         return {
           title: this.#to(unit, TIME_U_MS),
-          body: `${TIME_U_MS} = ${TIME_U_SEC} * 1000ms`
+          body: `${TIME_U_MS} = x * 1000ms`
         }
       case TIME_U_SEC:
         return super.notRequire()
       case TIME_U_MIN:
         return {
           title: this.#to(unit, TIME_U_MIN),
-          body: `${TIME_U_MIN} = ${TIME_U_SEC} / ${sec}`
+          body: `${TIME_U_MIN} = x / ${sec}`
         }
       case TIME_U_HOUR:
         return {
           title: this.#to(unit, TIME_U_HOUR),
-          body: `${TIME_U_HOUR} = ${TIME_U_SEC} / (${hour})`
+          body: `${TIME_U_HOUR} = x / (${hour})`
         }
       case TIME_U_DAY:
         return {
           title: this.#to(unit, TIME_U_DAY),
-          body: `${TIME_U_DAY} = ${TIME_U_SEC} / (${day})`
+          body: `${TIME_U_DAY} = x / (${day})`
         }
       default:
         return super.unknown()
@@ -133,29 +133,29 @@ export default class Time extends Base {
       case TIME_U_MICRO:
         return {
           title: this.#to(unit, TIME_U_MICRO),
-          body: `${TIME_U_MICRO} = ${TIME_U_MIN} * 60sec * 1000000μs`
+          body: `${TIME_U_MICRO} = x * 60sec * 1000000μs`
         }
       case TIME_U_MS:
         return {
           title: this.#to(unit, TIME_U_MS),
-          body: `${TIME_U_MS} = ${TIME_U_MIN} * 60sec * 1000ms`
+          body: `${TIME_U_MS} = x * 60sec * 1000ms`
         }
       case TIME_U_SEC:
         return {
           title: this.#to(unit, TIME_U_SEC),
-          body: `${TIME_U_SEC} = ${TIME_U_MIN} * 60sec`
+          body: `${TIME_U_SEC} = x * 60sec`
         }
       case TIME_U_MIN:
         return super.notRequire()
       case TIME_U_HOUR:
         return {
           title: this.#to(unit, TIME_U_HOUR),
-          body: `${TIME_U_HOUR} = ${TIME_U_MIN} / 60min`
+          body: `${TIME_U_HOUR} = x / 60min`
         }
       case TIME_U_DAY:
         return {
           title: this.#to(unit, TIME_U_DAY),
-          body: `${TIME_U_DAY} = ${TIME_U_MIN} / (60min * 24hour)`
+          body: `${TIME_U_DAY} = x / (60min * 24hour)`
         }
       default:
         return super.unknown()
@@ -174,29 +174,29 @@ export default class Time extends Base {
       case TIME_U_MICRO:
         return {
           title: this.#to(unit, TIME_U_MICRO),
-          body: `${TIME_U_MICRO} = ${TIME_U_HOUR} * ${micro}`
+          body: `${TIME_U_MICRO} = x * ${micro}`
         }
       case TIME_U_MS:
         return {
           title: this.#to(unit, TIME_U_MS),
-          body: `${TIME_U_MS} = ${TIME_U_HOUR} * ${ms}`
+          body: `${TIME_U_MS} = x * ${ms}`
         }
       case TIME_U_SEC:
         return {
           title: this.#to(unit, TIME_U_SEC),
-          body: `${TIME_U_SEC} = ${TIME_U_HOUR} * ${sec}`
+          body: `${TIME_U_SEC} = x * ${sec}`
         }
       case TIME_U_MIN:
         return {
           title: this.#to(unit, TIME_U_MIN),
-          body: `${TIME_U_MIN} = ${TIME_U_HOUR} * ${min}`
+          body: `${TIME_U_MIN} = x * ${min}`
         }
       case TIME_U_HOUR:
         return super.notRequire()
       case TIME_U_DAY:
         return {
           title: this.#to(unit, TIME_U_DAY),
-          body: `${TIME_U_DAY} = ${TIME_U_HOUR} / 24hour`
+          body: `${TIME_U_DAY} = x / 24hour`
         }
       default:
         return super.unknown()
@@ -216,27 +216,27 @@ export default class Time extends Base {
       case TIME_U_MICRO:
         return {
           title: this.#to(unit, TIME_U_MICRO),
-          body: `${TIME_U_MICRO} = ${TIME_U_DAY} * ${micro}`
+          body: `${TIME_U_MICRO} = x * ${micro}`
         }
       case TIME_U_MS:
         return {
           title: this.#to(unit, TIME_U_MS),
-          body: `${TIME_U_MS} = ${TIME_U_DAY} * ${ms}`
+          body: `${TIME_U_MS} = x * ${ms}`
         }
       case TIME_U_SEC:
         return {
           title: this.#to(unit, TIME_U_SEC),
-          body: `${TIME_U_SEC} = ${TIME_U_DAY} * ${sec}`
+          body: `${TIME_U_SEC} = x * ${sec}`
         }
       case TIME_U_MIN:
         return {
           title: this.#to(unit, TIME_U_MIN),
-          body: `${TIME_U_MIN} = ${TIME_U_DAY} * ${min}`
+          body: `${TIME_U_MIN} = x * ${min}`
         }
       case TIME_U_HOUR:
         return {
           title: this.#to(unit, TIME_U_HOUR),
-          body: `${TIME_U_HOUR} = ${TIME_U_DAY} * ${hour}`
+          body: `${TIME_U_HOUR} = x * ${hour}`
         }
       case TIME_U_DAY:
         return super.notRequire()
