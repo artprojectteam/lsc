@@ -5,15 +5,6 @@
     .formula-code(v-if="str.body")
       h3.formula-title(v-if="str.title") {{str.title}}
       p.formula-str {{str.body}}
-      //-
-        h3.formula-title Micro Seconds to Seconds:
-        p.formula-str x = 1000μs / 1000ms
-    //-
-      ul.formula-code
-        //-li.formula-list {{str}}
-        li.formula-list(v-for="val in list", :key="val")
-          .formula-no
-          .formula-value {{val}}
 </template>
 
 <style lang="stylus" scoped>
@@ -28,7 +19,6 @@
       list-style: none
       margin: 0
       padding: (space-mobile / 2)
-      //counter-reset: count
       @media tablet
         padding: (space-tablet / 2)
 
@@ -43,7 +33,9 @@
     &-str
       margin: 0
       line-height: 1.3
-      // padding-left: 0.5em
+      font-size: (fz-mobile + 0.3rem)
+      @media tablet
+        font-size: (fz-tablet + 0.3rem)
 
     &-list
       display: flex
