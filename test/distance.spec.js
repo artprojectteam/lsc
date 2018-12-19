@@ -37,14 +37,14 @@ describe('distance', () => {
 
   it('m', () => {
     const res1 = distance.selectM(100)
-    const ans1 = [100000, 1000, 100, 0.1, 0.06214, 109.36133, 328.08399, 3937.00787, 0.054]
+    const ans1 = [100000, 10000, 100, 0.1, 0.06214, 109.36133, 328.08399, 3937.00787, 0.054]
 
     for (let i = 0, iLen = res1.length; i < iLen; i++) {
       assert.equal(res1[i], ans1[i])
     }
 
     const res2 = distance.selectM(594834)
-    const ans2 = [594834000, 5948340, 594834, 594.834, 369.61271, 650518.3727, 1951555.11811, 23418661.41732, 321.18467]
+    const ans2 = [594834000, 59483400, 594834, 594.834, 369.61271, 650518.3727, 1951555.11811, 23418661.41732, 321.18467]
 
     for (let i = 0, iLen = res2.length; i < iLen; i++) {
       assert.equal(res2[i], ans2[i])
@@ -104,7 +104,7 @@ describe('distance', () => {
   })
 
   it('knot', () => {
-    const res1 = distance.selectKnot(100)
+    const res1 = distance.selectNm(100)
     const ans1 = [185200000, 18520000, 185200, 185.2, 115.07794, 202537.18285, 607611.54856, 7291338.58268, 100]
 
     for (let i = 0, iLen = res1.length; i < iLen; i++) {

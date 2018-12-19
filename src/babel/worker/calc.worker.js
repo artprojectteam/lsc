@@ -4,8 +4,18 @@ import Transfer from '../modules/calc/Transfer'
 import {
   DISTANCE,
   DISTANCE_SUB,
+  DISTANCE_U_CM,
+  DISTANCE_U_FOOT,
+  DISTANCE_U_INCH,
+  DISTANCE_U_KM,
+  DISTANCE_U_M,
+  DISTANCE_U_MILE,
+  DISTANCE_U_MM,
+  DISTANCE_U_NM,
+  DISTANCE_U_YARD,
   TIME,
-  TIME_SUB, TIME_U_DAY,
+  TIME_SUB,
+  TIME_U_DAY,
   TIME_U_HOUR,
   TIME_U_MICRO,
   TIME_U_MIN,
@@ -75,24 +85,24 @@ function funcDistance (index, number) {
   const distance = new Distance()
 
   switch (DISTANCE_SUB[index]) {
-    case 'mm':
+    case DISTANCE_U_MM:
       return distance.selectMm(number)
-    case 'cm':
+    case DISTANCE_U_CM:
       return distance.selectCm(number)
-    case 'm':
+    case DISTANCE_U_M:
       return distance.selectM(number)
-    case 'km':
+    case DISTANCE_U_KM:
       return distance.selectKm(number)
-    case 'mile':
+    case DISTANCE_U_MILE:
       return distance.selectMile(number)
-    case 'yard':
+    case DISTANCE_U_YARD:
       return distance.selectYard(number)
-    case 'foot':
+    case DISTANCE_U_FOOT:
       return distance.selectFoot(number)
-    case 'inch':
+    case DISTANCE_U_INCH:
       return distance.selectInch(number)
-    case 'nautical mile':
-      return distance.selectKnot(number)
+    case DISTANCE_U_NM:
+      return distance.selectNm(number)
     default:
       return []
   }

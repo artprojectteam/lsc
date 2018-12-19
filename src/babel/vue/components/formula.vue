@@ -97,9 +97,7 @@
         this.worker.addEventListener('message', (e) => {
           this.worker = null
           this.str = e.data
-          // this.list = e.data
-          // console.log(e.data)
-        }, false)
+        }, { once: true, passive: true })
 
         this.worker.postMessage({
           category: this.current,

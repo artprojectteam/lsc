@@ -17,6 +17,11 @@
     transition: transform 0.3s easeInOutBack, background $easing, color $easing
     overflow: hidden
     position: relative
+    @media (hover: hover)
+      &:hover
+        transform: scale(0.95)
+      &:hover::after
+        animation: $anim
 
     &::after
       content: ''
@@ -32,11 +37,6 @@
       width: 100%
       height: 200%
       opacity: 0
-
-    &:hover::after
-      animation: $anim
-      @media (hover: none), (hover: on-demand)
-        animation: none
 
     &:focus
       outline: none

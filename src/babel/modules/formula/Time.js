@@ -3,7 +3,7 @@ import Base from './Base'
 
 export default class Time extends Base {
   atMicro (result) {
-    const unit = 'Micro second to'
+    const unit = 'microsecond to'
 
     const micro = '1000μs'
     const ms = '1000ms'
@@ -23,7 +23,7 @@ export default class Time extends Base {
       case TIME_U_SEC:
         return {
           title: this.#to(unit, TIME_U_SEC),
-          body: `sec = ${TIME_U_MICRO} / (${sec})`
+          body: `${TIME_U_SEC} = ${TIME_U_MICRO} / (${sec})`
         }
       case TIME_U_MIN:
         return {
@@ -46,7 +46,7 @@ export default class Time extends Base {
   }
 
   atMs (result) {
-    const unit = 'Milli second to'
+    const unit = 'millisecond to'
 
     const ms = '1000ms'
     const min = `${ms} * 60sec`
@@ -87,7 +87,7 @@ export default class Time extends Base {
   }
 
   atSec (result) {
-    const unit = `Second to`
+    const unit = `second to`
 
     const sec = '60sec'
     const hour = `${sec} * 60min`
@@ -127,7 +127,7 @@ export default class Time extends Base {
   }
 
   atMin (result) {
-    const unit = `Minute to`
+    const unit = `minute to`
 
     switch (TIME_SUB[result]) {
       case TIME_U_MICRO:
@@ -163,7 +163,7 @@ export default class Time extends Base {
   }
 
   atHour (result) {
-    const unit = `Hour to`
+    const unit = `hour to`
 
     const min = '60min'
     const sec = `${min} * 60sec`
@@ -204,7 +204,7 @@ export default class Time extends Base {
   }
 
   atDay (result) {
-    const unit = `Day to`
+    const unit = `day to`
 
     const hour = '24hour'
     const min = `${hour} * 60min`
@@ -248,19 +248,19 @@ export default class Time extends Base {
   #to = (unit, str) => {
     switch (str) {
       case TIME_U_MICRO:
-        return `${unit} Micro second:`
+        return `${unit} microsecond:`
       case TIME_U_MS:
-        return `${unit} Milli second:`
+        return `${unit} millisecond:`
       case TIME_U_SEC:
-        return `${unit} Second:`
+        return `${unit} second:`
       case TIME_U_MIN:
-        return `${unit} Minute:`
+        return `${unit} minute:`
       case TIME_U_HOUR:
-        return `${unit} Hour:`
+        return `${unit} hour:`
       case TIME_U_DAY:
-        return `${unit} Day:`
+        return `${unit} day:`
       default:
-        return unit
+        return null
     }
   }
 }

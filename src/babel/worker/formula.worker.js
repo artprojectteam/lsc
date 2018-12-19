@@ -1,14 +1,41 @@
+import Distance from '../modules/formula/Distance'
 import Time from '../modules/formula/Time'
-import { TIME, TIME_SUB, TIME_U_DAY, TIME_U_HOUR, TIME_U_MICRO, TIME_U_MIN, TIME_U_MS, TIME_U_SEC } from '../modules/unit'
+import {
+  DISTANCE,
+  DISTANCE_SUB,
+  DISTANCE_U_CM,
+  DISTANCE_U_FOOT,
+  DISTANCE_U_INCH,
+  DISTANCE_U_KM,
+  DISTANCE_U_M,
+  DISTANCE_U_MILE,
+  DISTANCE_U_MM,
+  DISTANCE_U_NM,
+  DISTANCE_U_YARD,
+  TIME,
+  TIME_SUB,
+  TIME_U_DAY,
+  TIME_U_HOUR,
+  TIME_U_MICRO,
+  TIME_U_MIN,
+  TIME_U_MS,
+  TIME_U_SEC
+} from '../modules/unit'
 
 self.addEventListener('message', (event) => {
   const { category, unit, result } = event.data
 
   switch (category) {
-    case TIME:
+    case TIME: {
       const res = funcTime(unit, result)
       self.postMessage(res)
       return false
+    }
+    case DISTANCE: {
+      const res = funcDistance(unit, result)
+      self.postMessage(res)
+      return false
+    }
   }
 }, false)
 
@@ -34,6 +61,33 @@ function funcTime (unit, result) {
       return time.atHour(result)
     case TIME_U_DAY:
       return time.atDay(result)
+    default:
+      return { title: null, body: 'Fail X(' }
+  }
+}
+
+function funcDistance (unit, result) {
+  const distance = new Distance()
+
+  switch (DISTANCE_SUB[unit]) {
+    case DISTANCE_U_MM:
+      return distance.atMm(result)
+    case DISTANCE_U_CM:
+      return distance.atCm(result)
+    case DISTANCE_U_M:
+      return distance.atM(result)
+    case DISTANCE_U_KM:
+      return distance.atKm(result)
+    case DISTANCE_U_MILE:
+      return distance.atMile(result)
+    case DISTANCE_U_YARD:
+      return distance.atYard(result)
+    case DISTANCE_U_FOOT:
+      return distance.atFoot(result)
+    case DISTANCE_U_INCH:
+      return distance.atInch(result)
+    case DISTANCE_U_NM:
+      return distance.atNm(result)
     default:
       return { title: null, body: 'Fail X(' }
   }

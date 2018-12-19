@@ -1,14 +1,14 @@
 export default class Base {
   notRequire () {
     return {
-      title: '',
+      title: null,
       body: 'Not Require.'
     }
   }
 
   unknown () {
     return {
-      title: '',
+      title: null,
       body: 'Unknown.'
     }
   }
