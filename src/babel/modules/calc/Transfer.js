@@ -1,4 +1,4 @@
-import { TRANSFER_SUB } from '../unit'
+import { TRANSFER_BYTE, TRANSFER_GB, TRANSFER_KB, TRANSFER_MB, TRANSFER_PB, TRANSFER_SUB, TRANSFER_TB } from '../unit'
 import Base from './Base'
 
 export default class Transfer extends Base {
@@ -8,12 +8,12 @@ export default class Transfer extends Base {
     super(TRANSFER_SUB)
 
     this.#idx = {
-      byte: super.index('byte'),
-      kb: super.index('KB'),
-      mb: super.index('MB'),
-      gb: super.index('GB'),
-      tb: super.index('TB'),
-      pb: super.index('PB')
+      byte: super.index(TRANSFER_BYTE),
+      kb: super.index(TRANSFER_KB),
+      mb: super.index(TRANSFER_MB),
+      gb: super.index(TRANSFER_GB),
+      tb: super.index(TRANSFER_TB),
+      pb: super.index(TRANSFER_PB)
     }
   }
 

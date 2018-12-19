@@ -228,7 +228,6 @@ export default class Distance extends Base {
 
   atMile (result) {
     const unit = 'mile to'
-    const cm = '10mm * 100cm'
 
     switch (DISTANCE_SUB[result]) {
       case DISTANCE_U_MM:

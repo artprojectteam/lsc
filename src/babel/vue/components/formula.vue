@@ -4,7 +4,7 @@
 
     .formula-code(v-if="str.body")
       h3.formula-title(v-if="str.title") {{str.title}}
-      p.formula-str {{str.body}}
+      p.formula-str(v-html="str.body")
 </template>
 
 <style lang="stylus" scoped>

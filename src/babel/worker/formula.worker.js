@@ -1,5 +1,6 @@
 import Distance from '../modules/formula/Distance'
 import Time from '../modules/formula/Time'
+import Transfer from '../modules/formula/Transfer'
 import {
   DISTANCE,
   DISTANCE_SUB,
@@ -19,7 +20,7 @@ import {
   TIME_U_MICRO,
   TIME_U_MIN,
   TIME_U_MS,
-  TIME_U_SEC
+  TIME_U_SEC, TRANSFER, TRANSFER_BYTE, TRANSFER_GB, TRANSFER_KB, TRANSFER_MB, TRANSFER_PB, TRANSFER_SUB, TRANSFER_TB
 } from '../modules/unit'
 
 self.addEventListener('message', (event) => {
@@ -33,6 +34,11 @@ self.addEventListener('message', (event) => {
     }
     case DISTANCE: {
       const res = funcDistance(unit, result)
+      self.postMessage(res)
+      return false
+    }
+    case TRANSFER: {
+      const res = funcTransfer(unit, result)
       self.postMessage(res)
       return false
     }
@@ -88,6 +94,27 @@ function funcDistance (unit, result) {
       return distance.atInch(result)
     case DISTANCE_U_NM:
       return distance.atNm(result)
+    default:
+      return { title: null, body: 'Fail X(' }
+  }
+}
+
+function funcTransfer (unit, result) {
+  const transfer = new Transfer()
+
+  switch (TRANSFER_SUB[unit]) {
+    case TRANSFER_BYTE:
+      return transfer.atByte(result)
+    case TRANSFER_KB:
+      return transfer.atKB(result)
+    case TRANSFER_MB:
+      return transfer.atMB(result)
+    case TRANSFER_GB:
+      return transfer.atGB(result)
+    case TRANSFER_TB:
+      return transfer.atTB(result)
+    case TRANSFER_PB:
+      return transfer.atPB(result)
     default:
       return { title: null, body: 'Fail X(' }
   }

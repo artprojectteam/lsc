@@ -22,7 +22,13 @@ import {
   TIME_U_MS,
   TIME_U_SEC,
   TRANSFER,
-  TRANSFER_SUB
+  TRANSFER_BYTE,
+  TRANSFER_GB,
+  TRANSFER_KB,
+  TRANSFER_MB,
+  TRANSFER_PB,
+  TRANSFER_SUB,
+  TRANSFER_TB
 } from '../modules/unit'
 
 self.addEventListener('message', (event) => {
@@ -118,17 +124,17 @@ function funcTransfer (index, number) {
   const transfer = new Transfer()
 
   switch (TRANSFER_SUB[index]) {
-    case 'byte':
+    case TRANSFER_BYTE:
       return transfer.selectByte(number)
-    case 'KB':
+    case TRANSFER_KB:
       return transfer.selectKB(number)
-    case 'MB':
+    case TRANSFER_MB:
       return transfer.selectMB(number)
-    case 'GB':
+    case TRANSFER_GB:
       return transfer.selectGB(number)
-    case 'TB':
+    case TRANSFER_TB:
       return transfer.selectTB(number)
-    case 'PB':
+    case TRANSFER_PB:
       return transfer.selectPB(number)
     default:
       return []
