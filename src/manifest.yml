@@ -35,7 +35,7 @@ icons:
 
 start_url: ./?utm_source=homescreen
 
-display: minimal-ui
+display: standalone # minimal-ui
 
 orientation: portrait
 
