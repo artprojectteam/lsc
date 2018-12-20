@@ -8,7 +8,7 @@
   "scripts": {
     "start": "cross-env E=development M=watch npm-run-all -p pre:* b:* w:*",
     "build": "cross-env E=development M=once npm-run-all -s clean pre:* b:* webpack -s a:*",
-    "release": "cross-env E=production M=once npm-run-all -s clean pre:* b:* webpack",
+    "release": "cross-env E=production M=once npm-run-all -s clean pre:* b:* webpack -s a:*",
     "server": "NODE_ENV=development HOST=server babel-node bundler/node/server.js",
     "test": "cross-env NODE_ENV=test babel-node ./node_modules/karma/bin/karma start karma.conf.babel.js",
     "clean": "NODE_ENV=$E babel-node bundler/node/clean.js",

@@ -9,7 +9,7 @@ import { DIST } from './index'
 
 // ビルドしたときのファイル名
 // 使用しない場合はnullにする
-export const filename = null // 'sw.js'
+export const filename = 'sw.js'
 
 // オプション
 export const serviceWorkerOptions = {
@@ -19,7 +19,17 @@ export const serviceWorkerOptions = {
   clientsClaim: false,
 
   // 実行時にキャッシュへ追加(動的)
-  runtimeCaching: [],
+  runtimeCaching: [
+    {
+      urlPattern: new RegExp('^https://fonts\.googleapis\.com'),
+      handler: 'staleWhileRevalidate',
+      options: {
+        cacheableResponse: {
+          statuses: [0, 200]
+        }
+      }
+    }
+  ],
 
   // あらかじめキャッシュされていないURLに対するナビゲーション要求に応答するルートを作成(オフラインのフォールバックではない),
   navigateFallback: undefined,
@@ -35,9 +45,9 @@ export const serviceWorkerOptions = {
   directoryIndex: 'index.' + (config.get('options.pug2php') ? 'php' : 'html'),
 
   // キャッシュ名の先頭に付与するID
-  cacheId: undefined,
+  cacheId: 'lsc_',
 
-  offlineGoogleAnalytics: false,
+  offlineGoogleAnalytics: true,
 
   // globPatternと照合するベースディレクトリ
   globDirectory: DIST,
@@ -50,7 +60,9 @@ export const serviceWorkerOptions = {
 
   // キャッシュマニフェストに登録するパターン
   globPatterns: [
-    '**/*.{js,css,html}'
+    'common/img/*',
+    'icons/*',
+    '**/*.{js,css,html,ico}'
   ],
 
   // キャッシュマニフェスト生成時にディレクトリ読み込みエラーだった場合にストップする
