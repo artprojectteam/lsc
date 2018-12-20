@@ -1,7 +1,7 @@
 <template lang="pug">
   transition-group.selectUnit(name="fade-list", tag="ul", @before-enter="beforeEnter", @after-enter="afterEnter", @enter-cancelled="afterEnter")
     li.selectUnit-list(v-for="(val, idx) in category", :data-index="idx", :key="val", :class="{wide: isWide(val)}")
-      v-button.selectUnit-button(color="green", :value="val", :is-active="idx === index", @click="change({ index: idx })")
+      v-button.selectUnit-button.g-unit(color="green", :value="val", :is-active="idx === index", @click="change({ index: idx })")
 </template>
 
 <style lang="stylus" scoped>

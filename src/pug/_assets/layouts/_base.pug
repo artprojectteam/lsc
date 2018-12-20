@@ -65,6 +65,9 @@ html(lang=$lang['def'], dir=$lang['dir'])
       include parts/_analytics
 
   body
+    if IS_PRODUCTION
+      include parts/_tag_manager
+
     block contents
 
 
