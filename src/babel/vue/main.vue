@@ -6,7 +6,7 @@
       section.calc-unit
         h2.title UNIT
         contents-select-unit
-        aside.sub-ad(v-if="production"): v-ad(c-lsc2="true", ad-client="ca-pub-0251375114144720", ad-slot="6269823321", ad-format="auto", ad-responsive="true")
+        aside.sub-ad(v-if="production"): v-ad(c-lsc2=true, ad-client="ca-pub-0251375114144720", ad-slot="6269823321", ad-format="auto", ad-responsive="true")
       section.calc-result
         h2.title RESULT
         contents-result
@@ -18,7 +18,7 @@
       section.setting-input: contents-input
       section.setting-code: contents-formula
 
-    aside.components.main-ad: v-ad(c-lsc1="true", ad-style="display: inline-block;", ad-client="ca-pub-0251375114144720", ad-slot="1848320442", ad-format="auto", ad-responsive="false")
+    aside.components.main-ad(v-if="production"): v-ad(c-lsc1=true, ad-style="display: inline-block;", ad-client="ca-pub-0251375114144720", ad-slot="1848320442", ad-format="auto", ad-responsive="false")
 </template>
 
 <style lang="stylus" scoped>
