@@ -9,9 +9,10 @@ block contents
   #apps.apps
     .apps-header: .apps-stretch: header.apps-container: content-header
 
-    main.apps-stretch: content-main.apps-container
+    main.apps-stretch
+      content-main.apps-container
 
-    .apps-footer: .apps-stretch: footer.apps-container: content-footer footer
+    .apps-footer: .apps-stretch: footer.apps-container: content-footer
 
 append body_js
   script(src=`${$dir['js']}/app.js`)

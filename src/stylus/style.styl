@@ -32,9 +32,9 @@ json('const/base.json')
 
   &-footer
     // 広告がフッターの下にくるので何もしない
-    //safe-area('bottom')
-    //safe-area('left')
-    //safe-area('right')
+    safe-area('bottom')
+    safe-area('left')
+    safe-area('right')
     background: color-main
     color: #ffffff
 
@@ -50,6 +50,12 @@ json('const/base.json')
   &-container
     max-width: 1200px
     margin: 0 auto
+
+  &-ad
+    position: relative
+    left: -(space-mobile)
+    @media tablet
+      left: -(space-tablet)
 
 // transition
 .fade-list

@@ -6,6 +6,7 @@
       section.calc-unit
         h2.title UNIT
         contents-select-unit
+        aside.sub-ad(v-if="production"): v-ad(c-lsc2="true", ad-client="ca-pub-0251375114144720", ad-slot="6269823321", ad-format="auto", ad-responsive="true")
       section.calc-result
         h2.title RESULT
         contents-result
@@ -17,7 +18,7 @@
       section.setting-input: contents-input
       section.setting-code: contents-formula
 
-    aside.components.main-ad: contents-ad
+    aside.components.main-ad: v-ad(c-lsc1="true", ad-style="display: inline-block;", ad-client="ca-pub-0251375114144720", ad-slot="1848320442", ad-format="auto", ad-responsive="false")
 </template>
 
 <style lang="stylus" scoped>
@@ -86,9 +87,9 @@
         grid-column: 2 / 3
         grid-row: 2 / 3
 
-  .main-ad
-    width: 100%
-    height: 40px
+  .sub-ad
+    @media tablet
+      padding-top: (space-tablet * 2)
 </style>
 
 <script>
@@ -97,18 +98,19 @@
   import contentsResult from './components/result'
   import contentsChangeUnit from './components/change-unit'
   import contentsInput from './components/input'
-  import contentsAd from './components/ad'
   import contentsFormula from './components/formula'
 
   export default {
     components: {
-      contentsAd,
       contentsDisplay,
       contentsSelectUnit,
       contentsResult,
       contentsChangeUnit,
       contentsInput,
       contentsFormula
+    },
+    computed: {
+      production: () => IS_PRODUCTION
     }
   }
 </script>

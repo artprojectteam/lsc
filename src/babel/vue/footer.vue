@@ -2,7 +2,6 @@
   .footer
     small.footer-copy &copy; arc-one
     ul.footer-list
-      li: span.footer-link Donate
       li: a.footer-link(href="https://github.com/artprojectteam/lsc/issues", target="_blank") Issue
 </template>
 
@@ -39,6 +38,5 @@
 </style>
 
 <script>
-  // TODO: Donate
   export default {}
 </script>
