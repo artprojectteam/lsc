@@ -45,7 +45,7 @@ export const serviceWorkerOptions = {
   directoryIndex: 'index.' + (config.get('options.pug2php') ? 'php' : 'html'),
 
   // キャッシュ名の先頭に付与するID
-  cacheId: 'lsc-v1',
+  cacheId: undefined,
 
   offlineGoogleAnalytics: true,
 
