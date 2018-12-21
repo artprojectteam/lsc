@@ -7,7 +7,7 @@ Please use it when you want to calculate in daily life or want to know the formu
 
 ## Support
 
-- IE Edge
+- IE Edge ...maybe
 - Google Chrome (desktop/mobile)
 - Mozilla Firefox
 - Safari (desktop/mobile)

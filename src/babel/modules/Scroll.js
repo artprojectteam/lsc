@@ -1,5 +1,5 @@
 import Fuzzy from './Fuzzy'
-import { $pointer, $wheel } from './supported'
+import { pointer, wheel } from './supported'
 
 export default class Scroll {
   #container = {
@@ -58,10 +58,10 @@ export default class Scroll {
     this.#isScroll = false
     const elem = this.#container.elem
 
-    elem.removeEventListener($pointer.start, this.#ev.start, false)
-    elem.removeEventListener($pointer.move, this.#ev.move, { passive: false })
-    elem.removeEventListener($pointer.end, this.#ev.end, false)
-    elem.removeEventListener($wheel, this.#ev.wheel, { passive: false })
+    elem.removeEventListener(pointer.start, this.#ev.start, false)
+    elem.removeEventListener(pointer.move, this.#ev.move, { passive: false })
+    elem.removeEventListener(pointer.end, this.#ev.end, false)
+    elem.removeEventListener(wheel, this.#ev.wheel, { passive: false })
   }
 
   /**
@@ -102,11 +102,14 @@ export default class Scroll {
 
     const offset = window.pageYOffset
     const parentOffset = offset + this.#container.elem.getBoundingClientRect().top
-    const borderTop = this.#elemStyle(this.#container.elem, 'borderTop', true)
+    const borderTop = this.#elemStyle(this.#container.elem, 'borderTopWidth', true)
     let h = 0
+
+    // console.log(parentOffset, borderTop)
 
     for (let i = 0, iLen = box.children.length; i < iLen; i++) {
       const elem = box.children[i]
+      // console.log(elem, elem.getBoundingClientRect())
 
       // 親要素からみたY座標値 + 高さの中心
       const y = (offset + elem.getBoundingClientRect().top) - parentOffset - borderTop
@@ -159,7 +162,7 @@ export default class Scroll {
       endTime = null
     }
     this.#ev.start = start.bind(this)
-    elem.addEventListener($pointer.start, this.#ev.start, false)
+    elem.addEventListener(pointer.start, this.#ev.start, false)
 
     /* move event */
     const move = (e) => {
@@ -174,7 +177,7 @@ export default class Scroll {
       endTime = e.timeStamp
     }
     this.#ev.move = move.bind(this)
-    elem.addEventListener($pointer.move, this.#ev.move, { passive: false })
+    elem.addEventListener(pointer.move, this.#ev.move, { passive: false })
 
     /* end event */
     const end = () => {
@@ -217,7 +220,7 @@ export default class Scroll {
       movePos = null
     }
     this.#ev.end = end.bind(this)
-    elem.addEventListener($pointer.end, this.#ev.end, false)
+    elem.addEventListener(pointer.end, this.#ev.end, false)
   }
 
   /**
@@ -226,7 +229,7 @@ export default class Scroll {
   #wheel = () => {
     let timer = null
 
-    const wheel = (e) => {
+    const ev = (e) => {
       e.preventDefault()
       clearTimeout(timer)
 
@@ -255,8 +258,8 @@ export default class Scroll {
       }, 100)
     }
 
-    this.#ev.wheel = wheel.bind(this)
-    this.#container.elem.addEventListener($wheel, this.#ev.wheel, { passive: false })
+    this.#ev.wheel = ev.bind(this)
+    this.#container.elem.addEventListener(wheel, this.#ev.wheel, { passive: false })
   }
 
   /**

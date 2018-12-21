@@ -35,7 +35,6 @@
     display: grid
     grid-gap: space-mobile
     grid-template-columns: repeat(3, 1fr)
-    grid-auto-rows: auto
     @media tablet
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: auto 1fr
