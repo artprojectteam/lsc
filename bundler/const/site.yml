@@ -1,7 +1,7 @@
 # サイト全体設定(各モードで上書き可能)
 title: LsC ! - Let's conversion !
 separate: ' | '
-author: ''
+author: 'arc-one'
 authorUrl: ''
-description: ''
-url: ''
+description: 'It is a web application that converts entered numerical value into each unit. Please use it when you want to calculate in daily life or want to know the formula.'
+url: 'https://lsc.arc-one.jp'

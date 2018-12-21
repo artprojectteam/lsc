@@ -1,4 +1,4 @@
-img: ogp.jpg # or foo/bar.jpg ※file-loader対象外
+img: lsc-ogp.png # or foo/bar.jpg ※file-loader対象外
 
 # デフォルトのタイプ
 type: website

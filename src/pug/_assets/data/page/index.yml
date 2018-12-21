@@ -19,7 +19,7 @@ lang: en
 # OGP設定
 ogp:
   fb:
-    visible: false
+    visible: true
 
   tw:
     visible: false
