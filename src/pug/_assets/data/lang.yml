@@ -3,3 +3,8 @@ ja:
   def: ja
   region: JP    # google mapなど
   dir: null    # ltr(左から右)以外のときのみ記述
+
+en:
+  def: en
+  region: en_US
+  dir: null

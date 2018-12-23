@@ -22,7 +22,7 @@ export const postCssLoader = {
   loader: 'postcss-loader',
   options: {
     sourceMap: false,
-    plugins: () => [autoprefixer(), mqpacker()]
+    plugins: () => [autoprefixer({ grid: true, flexbox: 'no-2009' }), mqpacker()]
   }
 }
 

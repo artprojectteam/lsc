@@ -2,5 +2,84 @@
 @require "_assets/_init.styl"
 
 //*********** initialize ***************//
+@require "~bootstrap/dist/css/bootstrap-reboot.min.css"
 @require "_assets/modules/_reset.styl"
 
+json('const/media-query.json')
+json('const/base.json')
+
+//*********** layouts ***************//
+.apps
+  display: grid
+  width: 100%
+  min-height: 100%
+  grid-template-rows: 50px 1fr 60px
+  grid-gap: space-mobile
+  @media tablet
+    grid-gap: space-tablet
+    grid-template-rows: 80px 1fr 80px
+  @media desktop
+    grid-template-rows: 80px 1fr 100px
+
+  &-header
+    //safe-area('top')
+    //safe-area('left')
+    //safe-area('right')
+    & ^[0]-stretch
+    & ^[0]-container
+      height: 100%
+
+  &-footer
+    safe-area('bottom')
+    safe-area('left')
+    safe-area('right')
+    background: color-main
+    color: #ffffff
+
+    & ^[0]-stretch
+    & ^[0]-container
+      height: 100%
+
+  &-stretch
+    padding: 0 10px
+    @media tablet
+      padding: 0 space-tablet
+
+  &-container
+    max-width: 1200px
+    margin: 0 auto
+
+  &-ad
+    position: relative
+    left: -(space-mobile)
+    @media tablet
+      left: -(space-tablet)
+
+// transition
+.fade-list
+  &-enter-active
+    transition: all 0.3s ease
+  &-leave-active
+    opacity: 0
+    position: absolute
+  &-enter
+  &-leave-to
+    opacity: 0
+    visibility: hidden
+
+.fade-button
+  &-enter-active
+  &-leave-active
+    transition: all 0.3s ease
+  &-enter
+  &-leave-to
+    pointer-events: none
+    opacity: 0.5
+    visibility: visible
+
+.title
+  font-size: 1.6rem
+  margin-bottom: (space-mobile / 2)
+  @media tablet
+    font-size: 2.3rem
+    margin-bottom: (space-tablet / 2)

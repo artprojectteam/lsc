@@ -8,6 +8,7 @@ fg:
   android: '"Droid Sans", Roboto'
   verdana: Verdana
   default: sans-serif
+  rubik: '"Rubik"'
 
 fm:
   yu: YuMincho, "Yu Mincho"

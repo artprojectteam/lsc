@@ -3,22 +3,34 @@
 // iPhone Xのsafe area指定は`safe-area('top|right|bottom|left')`で指定
 //===============================================
 json('../const/base.json')
+json('../const/media-query.json')
 
 html
   font-size: 10px
   vertical-align: text-bottom
+  width: 100%
+  height: 100%
 
 body
   margin: 0
   padding: 0
   color: color-text
-  font: fz-default/1 $font-default
+  font: fz-mobile/1 $font-default
   font-weight: normal
   -webkit-font-smoothing: subpixel-antialiased
   -moz-osx-font-smoothing: grayscale
   //** text-renderingを使用する場合は不具合もあるので検証しながら使用
   //text-rendering: optimizeLegibility
   -webkit-text-size-adjust: 100%
+  width: 100%
+  height: 100%
+
+  $bg = '../img/background.png'
+  $size = image-size($bg)
+  background: url($bg) repeat
+  background-size: ($size / 2) ($size / 2)
+  @media tablet
+    font-size: fz-tablet
 
 p
   margin-top: 0

@@ -7,7 +7,7 @@ if icon['favicon']
 - var tab = icon['tab']
 if tab['size'].length > 0
   each v in tab['size']
-    link(rel="icon", type=`image/${tab['ext']}`, href=`${$root + tab['dir'] + tab['name']}-${v}.${tab['ext']}`, size=`${v}x${v}`)
+    link(rel="icon", type=`image/${tab['ext']}`, href=`${$root + tab['dir'] + tab['name']}-${v}x${v}.${tab['ext']}`, sizes=`${v}x${v}`)
 
 //- apple touch icon
 if icon['touchIcon']

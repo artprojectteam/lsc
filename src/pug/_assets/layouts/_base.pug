@@ -40,12 +40,14 @@ html(lang=$lang['def'], dir=$lang['dir'])
     meta(name="format-detection", content="telephone=no, email=no, address=no")
     
     //- android用ステータスバーカラー設定
-      meta(name="theme-color", content=$site['color']['main'])
+    meta(name="theme-color", content=$site['color']['main'])
 
     //- iOSをフルスクリーン表示
     //- bar-styleは`default` `black` `black-translucent` の3種類
-      meta(name="apple-mobile-web-app-status-bar-style", content=default)
-      meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="default")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+
+    link(rel="manifest", href="/manifest.json")
 
     include parts/_sns
 
@@ -53,6 +55,7 @@ html(lang=$lang['def'], dir=$lang['dir'])
     block canonical
 
     block css
+      link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Rubik:400,700")
       link(rel="stylesheet", href=`${$dir['css']}/style.css`, media="all")
 
     block head_js
@@ -61,7 +64,19 @@ html(lang=$lang['def'], dir=$lang['dir'])
     if IS_PRODUCTION
       include parts/_analytics
 
+      script.
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js').then(function (registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope)
+          }).catch(function (err) {
+            console.log('ServiceWorker registration failed: ', err)
+          })
+        }
+
   body
+    if IS_PRODUCTION
+      include parts/_tag_manager
+
     block contents
 
 

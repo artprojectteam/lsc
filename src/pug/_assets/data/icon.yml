@@ -6,13 +6,13 @@ favicon: true
 tab:
   mime: image/png
   ext: png
-  name: favicon
+  name: icon
 
   # ルート直下の場合は空
-  dir: '' # icon/
-  size: []
+  dir: 'icons/' # icon/
+  size: [192]
 #    - 16
 
 
 # apple touch icon ※180*180を用意する
-touchIcon: '' # icon/apple-touch-icon.png
+touchIcon: 'icons/apple-touch-icon.png' # icon/apple-touch-icon.png

@@ -10,7 +10,7 @@ cdn:
 # ビルドオプション
 options:
   # pugをPHPで出力
-  pug2php: true
+  pug2php: false
 
   # vueのビルド
   vue: true
