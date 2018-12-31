@@ -5,6 +5,8 @@ URL: [https://lsc.arc-one.jp](https://lsc.arc-one.jp)
 It is a web application that converts entered numerical value into each unit.
 Please use it when you want to calculate in daily life or want to know the formula.
 
+![LsC !](src/copy/lsc-ogp.png)
+
 ## Support
 
 - IE Edge ...maybe
