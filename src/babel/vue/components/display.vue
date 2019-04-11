@@ -1,5 +1,5 @@
 <template lang="pug">
-  .display
+  label.display(for="input-area")
     .display-number {{formatNumber}}
     .display-unit {{unit}}
 </template>
@@ -9,6 +9,7 @@
 
   .display
     text-align: right
+    display: block
     &-number
       font-size: 2rem
       @media tablet

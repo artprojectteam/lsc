@@ -1,6 +1,6 @@
 <template lang="pug">
   .inputMouse
-    input.inputMouse-area(ref="inputMouse", type="number", v-model.trim="inputs")
+    input#input-area.inputMouse-area(ref="inputMouse", type="number", v-model.trim="inputs")
     .inputMouse-warning(v-if="warning") {{warning}}
 </template>
 
